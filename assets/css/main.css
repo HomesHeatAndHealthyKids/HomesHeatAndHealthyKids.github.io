@@ -2931,10 +2931,12 @@
 	}
 
 	#header {
+	    margin: 0;
+		padding: 0;
 		background: #444;
 		color: #bbb;
 		cursor: default;
-		height: 3.25em;
+		height: 5em; /* adjust height as needed */
 		left: 0;
 		line-height: 3.25em;
 		position: fixed;
@@ -2960,62 +2962,148 @@
 				border: 0;
 			}
 
-		#header nav {
-			height: inherit;
-			line-height: inherit;
-			position: absolute;
-			right: 0.75em;
-			top: 0;
-			vertical-align: middle;
-		}
+/* Nav */
+/* Make the nav a full-width top bar */
+#header nav {
+    width: 100%;
+    background: rgba(0, 0, 0, 0.2); /* gentle transparency matching your theme */
+    padding: 0;
+    margin: 0;
+    position: fixed;
+    top: 0;
+    left: 0;	/* keep it inside the header unless you want sticky */
+    z-index: 1000;
+}
 
-			#header nav > ul {
-				list-style: none;
-				margin: 0;
-				padding-left: 0;
-			}
+/* Turn UL into a horizontal nav strip */
+#header nav > ul {
+    display: flex;
+    justify-content: flex-start; /* or space-between / center */
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 2rem; /* add some left/right spacing */
+    border-radius: 0; /* remove rounded pill look */
+    box-shadow: none; /* remove inner glow */
+}
 
-				#header nav > ul > li {
-					display: inline-block;
-					padding-left: 0;
-				}
+/* Each nav item */
+#header nav > ul > li {
+    padding: 0;
+    margin-right: 2rem; /* space between items */
+}
 
-					#header nav > ul > li > ul {
-						display: none;
-					}
+/* Links */
+#header nav > ul > li > a,
+#header nav > ul > li > span {
+    display: block;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.75em;
+    letter-spacing: 0.25em;
+    padding: 1.2em 0; /* vertical height of strip */
+    transition: color 0.25s ease-in-out;
+}
 
-					#header nav > ul > li a {
-						display: inline-block;
-						height: 2em;
-						line-height: 1.95em;
-						padding: 0 1em;
-						border-radius: 6px;
-					}
+/* Hover + active */
+#header nav > ul > li:hover > a {
+    color: #fff;
+}
+#header nav > ul > li.active > a,
+#nav > ul > li.active > span {
+    color: #fff;
+}
 
-					#header nav > ul > li a:not(.button) {
-						color: #fff;
-						display: inline-block;
-						text-decoration: none;
-						border: 0;
-					}
+/* OPTIONAL: right-align Sign Up button */
+#header nav > ul > li:last-child {
+    margin-left: auto; /* pushes last item to the right */
+}
 
-						#header nav > ul > li a:not(.button).icon:before {
-							color: #999;
-							margin-right: 0.5em;
-						}
 
-					#header nav > ul > li:first-child {
-						margin-left: 0;
-					}
+/* Logo */
+.logo {
+    font-size: 1.1em;
+    text-transform: uppercase;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    letter-spacing: 0.05em;
+}
 
-					#header nav > ul > li.active a:not(.button) {
-						background-color: rgba(153, 153, 153, 0.25);
-					}
+/* Sign Up button */
+.signup-btn {
+    color: white;
+    border: 1px solid rgba(255,255,255,0.7);
+    padding: 0.6em 1.2em;
+    border-radius: 0.35em;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.75em;
+    letter-spacing: 0.2em;
+    transition: all 0.25s ease-in-out;
+}
 
-					#header nav > ul > li .button {
-						margin: 0 0 0 0.5em;
-						position: relative;
-					}
+.signup-btn:hover {
+    background: rgba(255,255,255,0.15);
+    border-color: white;
+}
+
+
+/* Turn UL into a horizontal nav strip */
+#header nav > ul {
+    display: flex;
+    justify-content: flex-start; /* or space-between / center */
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0 2rem; /* add some left/right spacing */
+    border-radius: 0; /* remove rounded pill look */
+    box-shadow: none; /* remove inner glow */
+}
+
+/* Each nav item */
+#header nav > ul > li {
+    padding: 0;
+    margin-right: 2rem; /* space between items */
+}
+
+/* Links */
+#header nav > ul > li > a,
+#header nav > ul > li > span {
+    display: block;
+    color: rgba(255, 255, 255, 0.75);
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 0.75em;
+    letter-spacing: 0.25em;
+    padding: 1.2em 0; /* vertical height of strip */
+    transition: color 0.25s ease-in-out;
+}
+
+/* Hover + active */
+#header nav > ul > li:hover > a {
+    color: #fff;
+}
+#header nav > ul > li.active > a,
+#nav > ul > li.active > span {
+    color: #fff;
+}
+
+/* OPTIONAL: right-align Sign Up button */
+#header nav > ul > li:last-child {
+    margin-left: auto; /* pushes last item to the right */
+}
+#header nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+}
+body {
+    padding-top: 0; /*7em; /* avoid content hiding behind nav */
+}
+
 
 		#header input[type="submit"],
 		#header input[type="reset"],
