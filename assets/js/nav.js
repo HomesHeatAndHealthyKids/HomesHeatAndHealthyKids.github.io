@@ -11,9 +11,11 @@ document.addEventListener("DOMContentLoaded", () => {
       <nav id="nav">
           <ul>
               <li><a href="index.html">Home</a></li>
-              <li><a href="generic.html">Generic</a></li>
-              <li><a href="contact.html">Contact</a></li>
-              <li><a href="elements.html">Elements</a></li>
+              <li><a href="vision.html">Our Vision</a></li>
+              <li><a href="research.html">Our Research</a></li>
+              <li><a href="events.html">Events</a></li>
+              <li><a href="team.html">Meet the Team</a></li>
+              <li><a href="contact.html">Contact Us</a></li>
               <li>
                   <a href="#" class="icon solid fa-angle-down">Submenu</a>
                   <ul>
