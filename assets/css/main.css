@@ -2936,9 +2936,9 @@
 		background: #444;
 		color: #bbb;
 		cursor: default;
-		height: 5em; /* adjust height as needed */
+		height: 3.5em; /* adjust height as needed */
 		left: 0;
-		line-height: 3.25em;
+		line-height: 3.5em;
 		position: fixed;
 		top: 0;
 		width: 100%;
@@ -3069,7 +3069,11 @@
 }
 
 /* Links */
-#header nav > ul > li > a,
+#header nav > ul > li > a 
+{
+   padding: 0 0.9em;
+   line-height: 3.5em;  
+}
 #header nav > ul > li > span {
     display: block;
     color: rgba(255, 255, 255, 0.75);
