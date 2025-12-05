@@ -16,16 +16,6 @@ document.addEventListener("DOMContentLoaded", () => {
               <li><a href="events.html">Events</a></li>
               <li><a href="team.html">Meet the Team</a></li>
               <li><a href="contact.html">Contact Us</a></li>
-              <li>
-                  <a href="#" class="icon solid fa-angle-down">Submenu</a>
-                  <ul>
-                        <li><a href="#">Option One</a></li>
-                        <li><a href="#">Option Two</a></li>
-                        <li><a href="#">Option Three</a></li>
-                        <li><a href="#">Option Four</a></li>
-                  </ul>
-              </li>
-              <li><a href="#">Sign Up</a></li>
           </ul>
       </nav>
   </div>
