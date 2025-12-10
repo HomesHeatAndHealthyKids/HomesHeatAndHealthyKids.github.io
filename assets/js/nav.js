@@ -35,20 +35,31 @@ document.addEventListener("DOMContentLoaded", () => {
     }
   });
 
-  // ---------------------------------------------------------
-  // 3. Initialize Dropotron AFTER HTML has been injected
-  // ---------------------------------------------------------
-  // Dropotron requires the menu to exist in the DOM.
-  // Assumes jQuery + jquery.dropotron.min.js are included in the page.
-  if (window.jQuery && jQuery.fn.dropotron) {
-    jQuery("#nav > ul").dropotron({
-      offsetY: -10,          // adjust vertical position
-      mode: "fade",          // fade / zoom / default
-      expandMode: "hover",   // hover or click
-      hideDelay: 200,
-      alignment: "left"
-    });
-  } else {
-    console.warn("Dropotron not found — check script includes.");
+  // 3. Rebuild the Alpha mobile menu panel
+  if (window.jQuery) {
+    // Dropotron
+    if (jQuery.fn.dropotron) {
+      jQuery("#nav > ul").dropotron({
+        offsetY: -10,
+        expandMode: "hover"
+      });
+    }
+    // Alpha mobile nav panel
+    if (jQuery.fn.panel) {
+      jQuery('<div id="navPanel">' +
+        '<nav>' + jQuery('#nav').navList() + '</nav>' +
+      '</div>')
+      .appendTo('body')
+      .panel({
+        delay: 500,
+        hideOnClick: true,
+        hideOnSwipe: true,
+        side: 'left'
+      });
+
+      // Add the mobile menu toggle button
+      jQuery('<a href="#navPanel" class="navPanelToggle"></a>')
+        .appendTo('#header');
+    }
   }
 });
