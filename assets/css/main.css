@@ -3372,31 +3372,64 @@ body {
 			}
 
 		#footer .copyright {
-			color: #999;
-			font-size: 0.9em;
-			line-height: 1em;
-			margin: 2em 0 0 0;
+			display: flex;
+			align-items: center;
 			padding: 0;
-			text-align: center;
-		}
+			margin: 0;
+			list-style: none;
+			}
 
 			#footer .copyright a {
 				color: inherit;
 			}
 
-			#footer .copyright li {
-				border-left: solid 1px #dddddd;
-				display: inline-block;
-				list-style: none;
-				margin-left: 1em;
-				padding-left: 1em;
-			}
+		#footer .copyright li {
+		list-style: none;
+		margin-left: 1em;
+		padding-left: 1em;
+		}
 
-				#footer .copyright li:first-child {
-					border-left: 0;
-					margin-left: 0;
-					padding-left: 0;
-				}
+		#footer .copyright li:first-child {
+		margin-right: auto;
+		border-left: none;
+		margin-left: 5;
+		padding-left: 5;
+		}
+		/* First item left-aligned */
+		#footer .copyright .left {
+			margin-right: auto;
+		}
+
+		/* Right group */
+		.copyright .right-group {
+		position: relative;
+		display: inline-flex;
+		flex-direction: column;
+		align-items: center;
+		margin-right: 2rem;   /* ⬅️ controls how far from right edge */
+		}
+
+		/* Right-hand stack container */
+		#footer .copyright .funded,
+		#footer .copyright .logo {
+		position: relative;
+		}
+
+		/* Logo */
+		#footer .copyright .logo {
+		height: 96px;
+		display: block;
+		}
+
+		/* "Funded by" over the logo */
+		#footer .copyright .funded {
+		position: absolute;
+		right: 0;
+		bottom: 100%;       /* sits above the logo */
+		font-size: 0.75rem;
+		color: #666;
+		white-space: nowrap;
+		}
 
 /* CTA */
 
