@@ -3354,7 +3354,7 @@ body {
 /* Footer */
 
 	#footer {
-		background: #f0f0f0;
+		background: #e89980;
 		padding: 4em 0 6em 0;
 		text-align: center;
 	}
@@ -3394,10 +3394,12 @@ body {
 		border-left: none;
 		margin-left: 5;
 		padding-left: 5;
+		text-align: left;
 		}
 		/* First item left-aligned */
 		#footer .copyright .left {
 			margin-right: auto;
+			color: #000000;
 		}
 
 		/* Right group */
@@ -3406,6 +3408,7 @@ body {
 		display: inline-flex;
 		flex-direction: column;
 		align-items: center;
+		color:#000000;
 		margin-right: 2rem;   /* ⬅️ controls how far from right edge */
 		}
 
@@ -3427,7 +3430,7 @@ body {
 		right: 0;
 		bottom: 100%;       /* sits above the logo */
 		font-size: 0.75rem;
-		color: #666;
+		color: #000000;
 		white-space: nowrap;
 		}
 
