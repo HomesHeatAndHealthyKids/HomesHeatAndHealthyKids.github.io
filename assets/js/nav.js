@@ -23,6 +23,20 @@ document.addEventListener("DOMContentLoaded", () => {
 
   placeholder.innerHTML = navHTML;
 
+  const footHTML= `
+    <ul class="copyright">
+      <li class="left">&copy; Homes, Heat and Healthy Kids.</li>
+      <li class="right-group">
+        <span class="funded">Funded by</span>
+        <img src="images/wellcome-logo.jpg" alt="Wellcome" class="logo">
+      </li>
+    </ul>
+  `;
+  const target = document.getElementById("site-footer")
+  if (target)
+  {
+    target.innerHTML = footHTML;
+  }
   // ---------------------------------------------------------
   // 2. Highlight current page in menu
   // ---------------------------------------------------------
