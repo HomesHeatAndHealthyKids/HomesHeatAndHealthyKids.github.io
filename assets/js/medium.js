@@ -93,7 +93,7 @@ $(function () {
                                     <div class="dsbox">
                                         <div class="dubox">
                                             <div class="dvbox">
-                                                <a href="${item.link}" target="_blank"><img src="${src}" class="bhbox" width="720" height="210"></a>
+                                                <a href="${item.link}" target="_blank"><img src="${src}" class="bhbox" height="210"></a>
                                             </div>
                                         </div>
                                         <a href="${item.link}" target="_blank"><h3 class="eafont">${item.title}</h3></a>
