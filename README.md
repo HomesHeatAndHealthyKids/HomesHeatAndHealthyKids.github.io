@@ -1,7 +1,8 @@
-Alpha by HTML5 UP
+# Homes, Heat and Healthy Kids
+## Site design
+Site is based on Alpha by HTML5 UP
 html5up.net | @ajlkn
 Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
-
 
 A clean, super minimal responsive template geared towards startups, app devs, and other
 dedicated folks working tirelessly to launch their products. Includes a landing page,
@@ -21,7 +22,25 @@ aj@lkn.io | @ajlkn
 PS: Not sure how to get that contact form working? Give formspree.io a try (it's awesome).
 
 
-Credits:
+## Adding Blogs
+  * Please write blogs at Medium
+  * Blogs are added to the research.html page automatically from a medium feed.
+  * The blogs will take some time to appear because the feed is processed by api2json
+  * The research page will look for an image within the text and use that as a banner image for the blog
+  * Please make sure to include an image
+
+## Adding Team Members
+  * Please add team members on team.html
+  * Copy HTML code between and including <div class="team-card"></div>
+  * Alter the text to show details for the new team member
+  * Add headshots to the images/headshots directory
+
+## TODO 
+  * Add automatic research outputs
+  * Generate content
+
+
+## Credits:
 
 	Demo Images:
 		Unsplash (unsplash.com)
