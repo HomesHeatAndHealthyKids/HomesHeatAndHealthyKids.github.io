@@ -35,6 +35,12 @@ PS: Not sure how to get that contact form working? Give formspree.io a try (it's
   * Alter the text to show details for the new team member
   * Add headshots to the images/headshots directory
 
+## Adding Events
+  * Please add events on events.html
+  * Copy HTML code between and including <div class="event-card"></div>
+  * Alter the text to show details for the new event
+  * Add event pictures to the images/headshots directory
+
 ## TODO 
   * Add automatic research outputs
   * Generate content
