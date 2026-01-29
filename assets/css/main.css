@@ -3462,6 +3462,7 @@ body {
 		background: #e89980;
 		padding: 4em 0 6em 0;
 		text-align: center;
+		font-size: 0.8rem;
 	}
 
 		#footer .icons a {
@@ -3505,6 +3506,8 @@ body {
 		#footer .copyright .left {
 			margin-right: auto;
 			color: #000000;
+			line-height: 1.2;
+			margin: 0;
 		}
 
 		/* Right group */
@@ -3512,7 +3515,7 @@ body {
 		position: relative;
 		display: inline-flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-end;
 		color:#000000;
 		margin-right: 2rem;   /* ⬅️ controls how far from right edge */
 		}
@@ -3527,6 +3530,7 @@ body {
 		#footer .copyright .logo {
 		height: 96px;
 		display: block;
+		right: 0;
 		}
 
 		/* "Funded by" over the logo */

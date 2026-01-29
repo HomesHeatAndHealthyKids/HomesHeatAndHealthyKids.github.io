@@ -27,7 +27,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footHTML= `
     <ul class="copyright">
       <li class="left">Centre for Medical Informatics<br>Usher Institute<br>5-7 Little France Road<br>Edinburgh BioQuarter - Gate 3<br>Edinburgh EH16 4UX</li>
-      <li class="right-group">
+      <li class="right-group" style="text-align: right;">
         <span class="funded">Funded by</span>
         <img src="images/wellcome-logo.jpg" alt="Wellcome" class="logo">
         [308485/Z/23/Z]
