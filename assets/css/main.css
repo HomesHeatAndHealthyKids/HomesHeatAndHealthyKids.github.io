@@ -2452,6 +2452,61 @@
 			aspect-ratio: 16 / 9;
 			height: auto;
 	}
+.filters {
+	margin-bottom: 1.5rem;
+}
+
+
+.filters button {
+padding: 0.5rem 1rem;
+margin-right: 0.5rem;
+border: none;
+background: #eee;
+border-radius: 4px;
+cursor: pointer;
+}
+
+
+.filters button.active {
+background: #2c3e50;
+color: white;
+}
+
+
+.research-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+gap: 1.5rem;
+}
+
+
+.research-card {
+border: 1px solid #ddd;
+padding: 1.25rem;
+border-radius: 6px;
+background: #fff;
+transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+
+.research-card:hover {
+box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+transform: translateY(-2px);
+}
+
+
+.research-card .meta {
+font-size: 0.8rem;
+text-transform: uppercase;
+letter-spacing: 0.05em;
+color: #666;
+margin-bottom: 0.5rem;
+}
+
+
+.research-card.hidden {
+display: none;
+}
 /* List */
 
 	ol {
@@ -3407,6 +3462,7 @@ body {
 		background: #e89980;
 		padding: 4em 0 6em 0;
 		text-align: center;
+		font-size: 0.8rem;
 	}
 
 		#footer .icons a {
@@ -3450,6 +3506,8 @@ body {
 		#footer .copyright .left {
 			margin-right: auto;
 			color: #000000;
+			line-height: 1.2;
+			margin: 0;
 		}
 
 		/* Right group */
@@ -3457,7 +3515,7 @@ body {
 		position: relative;
 		display: inline-flex;
 		flex-direction: column;
-		align-items: center;
+		align-items: flex-end;
 		color:#000000;
 		margin-right: 2rem;   /* ⬅️ controls how far from right edge */
 		}
@@ -3472,6 +3530,7 @@ body {
 		#footer .copyright .logo {
 		height: 96px;
 		display: block;
+		right: 0;
 		}
 
 		/* "Funded by" over the logo */

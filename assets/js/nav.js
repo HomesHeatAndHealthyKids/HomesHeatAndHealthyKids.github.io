@@ -12,9 +12,11 @@ document.addEventListener("DOMContentLoaded", () => {
           <ul>
               <li><a href="index.html">Home</a></li>
               <li><a href="vision.html">Our Vision</a></li>
-              <li><a href="research.html">What's Happening</a></li>
+              <li><a href="blogs.html">What's Happening</a></li>
+              <li><a href="research.html">Research</a></li>
               <li><a href="events.html">Events</a></li>
               <li><a href="team.html">Meet the Team</a></li>
+              <li><a href="privacy.html">Privacy Notice</a></li>
               <li><a href="contact.html">Contact Us</a></li>
           </ul>
       </nav>
@@ -26,7 +28,7 @@ document.addEventListener("DOMContentLoaded", () => {
   const footHTML= `
     <ul class="copyright">
       <li class="left">Centre for Medical Informatics<br>Usher Institute<br>5-7 Little France Road<br>Edinburgh BioQuarter - Gate 3<br>Edinburgh EH16 4UX</li>
-      <li class="right-group">
+      <li class="right-group" style="text-align: right;">
         <span class="funded">Funded by</span>
         <img src="images/wellcome-logo.jpg" alt="Wellcome" class="logo">
         [308485/Z/23/Z]
