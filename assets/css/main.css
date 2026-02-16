@@ -5,6 +5,23 @@
 	Alpha by HTML5 UP
 	html5up.net | @ajlkn
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+
+    Colour palette for HHHK Jumper taken from ChatGPT
+
+	| ---------------- | --------------------- | ----------- | --------------- |
+	| Colour Name      | Description           | HEX Code    | RGB             |
+    | ---------------- | --------------------- | ----------- | --------------- |
+    | Deep Collar Blue | Dark ribbed neck blue | **#2F5F93** | (47, 95, 147)   |
+    | Mid Blue         | Upper stripe blue     | **#4E86AD** | (78, 134, 173)  |
+    | Soft Blue        | Pale blue stripe      | **#86AFC4** | (134, 175, 196) |
+    | Light Beige      | Neutral stripe        | **#E6C7AF** | (230, 199, 175) |
+    | Warm Peach       | Soft peach stripe     | **#E9A27D** | (233, 162, 125) |
+    | Burnt Orange     | Orange stripe         | **#D96A4C** | (217, 106, 76)  |
+    | Deep Red         | Cuffs and hem ribbing | **#C5333A** | (197, 51, 58)   |
+	| ---------------- | --------------------- | ----------- | --------------- |
+
+
+
 */
 
 /* Reset */
@@ -2878,7 +2895,7 @@ display: none;
 		input[type="reset"].primary,
 		input[type="button"].primary,
 		.button.primary {
-			background-color: #e89980;
+			background-color: #86AFC4;
 			color: #ffffff !important;
 		}
 
@@ -2886,14 +2903,14 @@ display: none;
 			input[type="reset"].primary:hover,
 			input[type="button"].primary:hover,
 			.button.primary:hover {
-				background-color: #ecaa96;
+				background-color: #86AFC4;
 			}
 
 			input[type="submit"].primary:active,
 			input[type="reset"].primary:active,
 			input[type="button"].primary:active,
 			.button.primary:active {
-				background-color: #e4886a;
+				background-color: #86AFC4;
 			}
 
 		input[type="submit"].disabled, input[type="submit"]:disabled,
@@ -2963,8 +2980,8 @@ display: none;
 	#header {
 	    margin: 0;
 		padding: 0;
-		background: #444;
-		color: #bbb;
+		background: #2F5F93; /* Red background matching the theme */
+		color: #86AFC4;
 		cursor: default;
 		height: 3.5em; /* adjust height as needed */
 		left: 0;
@@ -2996,7 +3013,7 @@ display: none;
 /* Make the nav a full-width top bar */
 #header nav {
     width: 100%;
-    background: rgba(0, 0, 0, 0.2); /* gentle transparency matching your theme */
+    background: rgba(47, 95, 147, 0.8); /* gentle transparency matching your theme */
     padding: 0;
     margin: 0;
     position: fixed;
@@ -3196,7 +3213,7 @@ body {
 			}
 
 			#header.alt nav > ul > li.active a:not(.button) {
-				background-color: rgba(255, 255, 255, 0.2);
+				background-color: rgba(197, 51, 58, 0.2);
 			}
 
 			#header.alt input[type="submit"],
@@ -3284,8 +3301,8 @@ body {
 
 	#banner {
 		background-attachment: scroll,							fixed;
-		background-color: #666;
-		background-image: url("images/overlay.png"), url("../../images/banner.jpg");
+		background-color: #2F5F93;
+		background-image: url("../../images/hhhk_banner.png"),  url("images/overlay.png");
 		background-position: top left,						center center;
 		background-repeat: repeat,							no-repeat;
 		background-size: auto,							cover;
@@ -3460,7 +3477,7 @@ body {
 /* Footer */
 
 	#footer {
-		background: #e89980;
+		background: #86afc4;
 		padding: 4em 0 6em 0;
 		text-align: center;
 		font-size: 0.8rem;
