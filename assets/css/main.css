@@ -3302,10 +3302,10 @@ body {
 	#banner {
 		background-attachment: scroll,							fixed;
 		background-color: #2F5F93;
-		background-image: url("../../images/hhhk_banner.png"),  url("images/overlay.png");
-		background-position: top left,						center center;
-		background-repeat: repeat,							no-repeat;
-		background-size: auto,							cover;
+		background-image: url("../../images/hhhk_banner.png");
+		background-position: top, center;
+		background-repeat: no-repeat;
+		background-size: cover;
 		color: #fff;
 		padding: 12em 0 20em 0;
 		text-align: center;
