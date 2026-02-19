@@ -71,7 +71,7 @@ function loadResearch() {
         <img src="${item.image}" alt="${item.title}">
       </div>
       <div class="card-content">
-        <strong>${item.title}</strong>
+        <h4>${item.title}</h4>
         <p>${item.date ? `${item.date} : ` : ''}${item.description}</p>
         <a href="${item.url}" target="_blank" rel="noopener">Read more →</a>
       </div>
