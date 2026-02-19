@@ -21,19 +21,20 @@ AJ
 aj@lkn.io | @ajlkn
 
 ## Colour palette for HHHK Jumper 
-  taken from ChatGPT
 
-	  | Colour Name      | Description           | HEX Code    | RGB             |
-    |------------------|-----------------------|-------------|-----------------|
-    | Deep Collar Blue | Dark ribbed neck blue | **#2F5F93** | (47, 95, 147)   |
-    | Mid Blue         | Upper stripe blue     | **#4E86AD** | (78, 134, 173)  |
-    | Soft Blue        | Pale blue stripe      | **#86AFC4** | (134, 175, 196) |
-    | Light Beige      | Neutral stripe        | **#E6C7AF** | (230, 199, 175) |
-    | Warm Peach       | Soft peach stripe     | **#E9A27D** | (233, 162, 125) |
-    | Burnt Orange     | Orange stripe         | **#D96A4C** | (217, 106, 76)  |
-    | Deep Red         | Cuffs and hem ribbing | **#C5333A** | (197, 51, 58)   |
+Taken from ChatGPT - sorry El - I should pay attention!
+
+
+| Colour Name      | Description           | HEX Code    | RGB             |
+|------------------|-----------------------|-------------|-----------------|
+| Deep Collar Blue | Dark ribbed neck blue | **#2F5F93** | (47, 95, 147)   |
+| Mid Blue         | Upper stripe blue     | **#4E86AD** | (78, 134, 173)  |
+| Soft Blue        | Pale blue stripe      | **#86AFC4** | (134, 175, 196) |
+| Light Beige      | Neutral stripe        | **#E6C7AF** | (230, 199, 175) |
+| Warm Peach       | Soft peach stripe     | **#E9A27D** | (233, 162, 125) |
+| Burnt Orange     | Orange stripe         | **#D96A4C** | (217, 106, 76)  |
+| Deep Red         | Cuffs and hem ribbing | **#C5333A** | (197, 51, 58)   |
 	 
-
 
 ## Adding Blogs
   * Please write blogs at Medium
@@ -45,16 +46,59 @@ aj@lkn.io | @ajlkn
 ## Adding Team Members
   * Please add team members on team.html
   * Copy HTML code between and including &lt;div class="team-card"&gt;&lt;/div&gt;
+```
+<div class="team-card">
+  <div class="team-content">
+    <h3 class="team-name">Micky Mouse</h3>
+    <h4 class="team-role">Data Analyst</h4>
+    <p>
+      I am exploring the impacts of energy efficiency 
+      interventions on the health of young children living in Scotland.
+    </p>
+    <p>
+    <strong>What made you want to be part of the project?</strong>
+    I am a dynamic individual who wants to be part of 
+    something special. He recognised that this team could 
+    be nice for him.
+    </p>
+  </div>
+  <!-- This shows the headshot on the right. 
+  Place before earlier div if picture goes on the left -->  
+  <div class="team-photo">
+    <img src="images/headshots/MM.jpg"
+      alt="Micky Mouse">
+  </div>
+</div>
+```
+
   * You may need to switch the picture link to make sure that the images alternate sides
   * Alter the text to show details for the new team member
   * Add headshots to the images/headshots directory
 
+## Adding Research Outputs
+ * Research outputs are added by modifying the JSON stored at the top of assets\js\research.js
+ * Each new output should have an entry like this:
+```
+  {
+        "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
+        "type": "Paper",
+        "categories": ["papers"],
+        "image": "images/pic01.jpg",
+        "date": "22nd November 2025",
+        "description": "Scoping review examining the association between home energy efficiency measures and children's respiratory health, and exploring potential downsides.",
+        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
+  },
+```
+ * The entries are very finickety - categories can be one of "papers", "presentations", or "engagements"  - the filter buttons will not work otherwise. You can place an entry in two categories (e.g. ["papers", "presentations"])
+ * Keep the description short if possible
+ * Always use the date format above
+ * There are several useful images already uploaded "house_cold", "house_with_germs", "house_with_heart", "house_cold", "radiator", and "chilly_people"
+
+
 ## TODO 
-  * Tidy up Automatic Research Contents
-  * Think about how the events are managed
+  * Embedded videos
+  * Team Review
   * Generate content
-
-
 ## Credits:
 
 	Demo Images:
