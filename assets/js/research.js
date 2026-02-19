@@ -2,61 +2,70 @@
   Data structure example (you can keep adding objects like this)
 */
 const researchItems = [
-	{
-        "title": "Cold Homes and Child Health",
+  {
+        "title": "Beyond Remuneration for Patient and Public Involvement Group Members",
+        "type": "Presentation",
+        "categories": ["presentations"],
+        "image": "images/chilly_people.png",
+        "date": "16th July 2026",
+        "description": "Tracy will be displaying her poster at International Population Data Linkage Network 2026 in Rotterdam.",
+        "url": "https://ipdln.org/2026-ipdln-conference/"
+  },
+  {
+        "title": "Household Interventions",
         "type": "Engagement",
-        "date": "2025-09-01",
         "categories": ["engagements"],
-        "image": "images/favicon.png",
-        "description": "Why housing warmth matters for children’s health.",
-        "url": "#"
-	},
+        "image": "images/chilly_people.png",
+        "date": "10th April 2026",
+        "description": "The team will be at Dynamic Earth for 3 days to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
+        "url": "https://www.edinburghscience.co.uk/event/university-of-edinburgh-7-days-100-scientists/"
+  },
+  {
+        "title": "Early Childhood Respiratory Infections - Plan",
+        "type": "Presentation",
+        "categories": ["presentations"],
+        "image": "images/radiator.png",
+        "date": "10th March 2026",
+        "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare.",
+        "url": "https://www.strath.ac.uk/engineering/architecture/"
+  },
+  {
+        "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
+        "type": "Paper",
+        "categories": ["papers"],
+        "image": "images/pic01.jpg",
+        "date": "22nd November 2025",
+        "description": "Scoping review examining the association between home energy efficiency measures and children's respiratory health, and exploring potential downsides.",
+        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
+  },
 	{
+        "title": "Homes, Heat and Healthy Kids - HDR UK Conference",
+        "type": "Presentation",
+        "date": "15th October 2025",
+        "categories": ["presentations"],
+        "image": "images/house_group.png",
+        "description": "Livvy Swann presents on the Homes, Heat and Healthy Kids study and the role of underheated homes in preschool respiratory health at the Health Data Research UK Conference.",
+        "url": "https://www.hdruk.ac.uk/about/hdr-uk-conference/health-data-research-uk-conference-2025-agenda/"
+	},
+  {
         "title": "Energy Efficiency and Hospital Admissions",
         "type": "Paper",
-        "date": "2025-10-01",
+        "date": "1st October 2025",
         "categories": ["papers"],
         "image": "images/house_with_germs.png",
         "description": "Statistical analysis of energy ratings and paediatric admissions.",
         "url": "#"
 	},
-	{
-        "title": "Homes, Heat and Healthy Kids",
-        "type": "Presentation",
-        "date": "2025-11-01",
-        "categories": ["presentations"],
-        "image": "images/house_group.png",
-        "description": "Presented at the UK Public Health Science Conference.",
-        "url": "#"
-	},
-    {
-        "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
-        "type": "Paper",
-        "categories": ["papers"],
-        "image": "images/pic01.jpg",
-        "date": "2025-12-01",
-        "description": "Scoping review examining the association between home energy efficiency measures and children's respiratory health, and exploring potential downsides.",
-        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
-    },
-    {
-        "title": "Early Childhood Respiratory Infections - Plan",
-        "type": "Presentation",
-        "categories": ["presentations"],
-        "image": "images/radiator.png",
-        "date": "2026-03-10",
-        "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare – infection counts stratified by housing characteristics, socioeconomic measures, local climate, and annual pollution exposures.",
-        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
-    },
-    {
-        "title": "Household Interventions",
+ 	{
+        "title": "Cold Homes and Child Health",
         "type": "Engagement",
+        "date": "1st September 2025",
         "categories": ["engagements"],
-        "image": "images/chilly_people.png",
-        "date": "2026-04-10 - 2026-04-12",
-        "description": "The team will be at Dynamic Earth to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
-        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
-    }
-];
+        "image": "images/favicon.png",
+        "description": "Why housing warmth matters for children’s health.",
+        "url": "#"
+	}
+  ];
 
 function loadResearch() {
   const grid = document.getElementById('researchGrid');
@@ -72,7 +81,8 @@ function loadResearch() {
       </div>
       <div class="card-content">
         <h4>${item.title}</h4>
-        <p>${item.date ? `${item.date} : ` : ''}${item.description}</p>
+        <p>${item.date ? `<span class="icon fa-regular fa-calendar accent1"></span> ${item.date}` : ''}</p>
+        <p>${item.description}</p>
         <a href="${item.url}" target="_blank" rel="noopener">Read more →</a>
       </div>
     `;
