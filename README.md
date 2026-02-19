@@ -21,7 +21,7 @@ AJ
 aj@lkn.io | @ajlkn
 
 ## Colour palette for HHHK Jumper 
-  taken from ChatGPT
+  taken from ChatGPT - sorry El - I should pay attention!
 
 	  | Colour Name      | Description           | HEX Code    | RGB             |
     |------------------|-----------------------|-------------|-----------------|
@@ -33,7 +33,6 @@ aj@lkn.io | @ajlkn
     | Burnt Orange     | Orange stripe         | **#D96A4C** | (217, 106, 76)  |
     | Deep Red         | Cuffs and hem ribbing | **#C5333A** | (197, 51, 58)   |
 	 
-
 
 ## Adding Blogs
   * Please write blogs at Medium
@@ -49,12 +48,30 @@ aj@lkn.io | @ajlkn
   * Alter the text to show details for the new team member
   * Add headshots to the images/headshots directory
 
+## Adding Research Outputs
+ * Research outputs are added by modifying the JSON stored at the top of assets\js\research.js
+ * Each new output should have the following entry
+```
+  {
+        "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
+        "type": "Paper",
+        "categories": ["papers"],
+        "image": "images/pic01.jpg",
+        "date": "22nd November 2025",
+        "description": "Scoping review examining the association between home energy efficiency measures and children's respiratory health, and exploring potential downsides.",
+        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
+  },
+```
+ * The entries are very finickety - categories can be one of "papers", "presentations", or "engagements"  
+ * Keep the description short if possible
+ * Always use the date format above
+ * There are several useful images already uploaded "house_cold", "house_with_germs", "house_with_heart", "house_cold", "radiator", and "chilly_people"
+
+
 ## TODO 
-  * Tidy up Automatic Research Contents
-  * Think about how the events are managed
+  * Embedded videos
+  * Team Review
   * Generate content
-
-
 ## Credits:
 
 	Demo Images:
