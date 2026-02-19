@@ -21,17 +21,19 @@ AJ
 aj@lkn.io | @ajlkn
 
 ## Colour palette for HHHK Jumper 
-  taken from ChatGPT - sorry El - I should pay attention!
 
-	  | Colour Name      | Description           | HEX Code    | RGB             |
-    |------------------|-----------------------|-------------|-----------------|
-    | Deep Collar Blue | Dark ribbed neck blue | **#2F5F93** | (47, 95, 147)   |
-    | Mid Blue         | Upper stripe blue     | **#4E86AD** | (78, 134, 173)  |
-    | Soft Blue        | Pale blue stripe      | **#86AFC4** | (134, 175, 196) |
-    | Light Beige      | Neutral stripe        | **#E6C7AF** | (230, 199, 175) |
-    | Warm Peach       | Soft peach stripe     | **#E9A27D** | (233, 162, 125) |
-    | Burnt Orange     | Orange stripe         | **#D96A4C** | (217, 106, 76)  |
-    | Deep Red         | Cuffs and hem ribbing | **#C5333A** | (197, 51, 58)   |
+Taken from ChatGPT - sorry El - I should pay attention!
+
+
+| Colour Name      | Description           | HEX Code    | RGB             |
+|------------------|-----------------------|-------------|-----------------|
+| Deep Collar Blue | Dark ribbed neck blue | **#2F5F93** | (47, 95, 147)   |
+| Mid Blue         | Upper stripe blue     | **#4E86AD** | (78, 134, 173)  |
+| Soft Blue        | Pale blue stripe      | **#86AFC4** | (134, 175, 196) |
+| Light Beige      | Neutral stripe        | **#E6C7AF** | (230, 199, 175) |
+| Warm Peach       | Soft peach stripe     | **#E9A27D** | (233, 162, 125) |
+| Burnt Orange     | Orange stripe         | **#D96A4C** | (217, 106, 76)  |
+| Deep Red         | Cuffs and hem ribbing | **#C5333A** | (197, 51, 58)   |
 	 
 
 ## Adding Blogs
@@ -50,7 +52,7 @@ aj@lkn.io | @ajlkn
 
 ## Adding Research Outputs
  * Research outputs are added by modifying the JSON stored at the top of assets\js\research.js
- * Each new output should have the following entry
+ * Each new output should have an entry like this:
 ```
   {
         "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
@@ -62,7 +64,7 @@ aj@lkn.io | @ajlkn
         "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
   },
 ```
- * The entries are very finickety - categories can be one of "papers", "presentations", or "engagements"  
+ * The entries are very finickety - categories can be one of "papers", "presentations", or "engagements"  - the filter buttons will not work otherwise. You can place an entry in two categories (e.g. ["papers", "presentations"])
  * Keep the description short if possible
  * Always use the date format above
  * There are several useful images already uploaded "house_cold", "house_with_germs", "house_with_heart", "house_cold", "radiator", and "chilly_people"
