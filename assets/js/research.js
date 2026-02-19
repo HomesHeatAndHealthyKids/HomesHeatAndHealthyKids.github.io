@@ -18,7 +18,7 @@ const researchItems = [
         "image": "images/chilly_people.png",
         "date": "10th April 2026",
         "description": "The team will be at Dynamic Earth for 3 days to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
-        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
+        "url": "https://www.edinburghscience.co.uk/event/university-of-edinburgh-7-days-100-scientists/"
   },
   {
         "title": "Early Childhood Respiratory Infections - Plan",
@@ -27,7 +27,7 @@ const researchItems = [
         "image": "images/radiator.png",
         "date": "10th March 2026",
         "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare.",
-        "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
+        "url": "https://www.strath.ac.uk/engineering/architecture/"
   },
   {
         "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
@@ -39,7 +39,7 @@ const researchItems = [
         "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
   },
 	{
-        "title": "Homes, Heat and Healthy Kids",
+        "title": "Homes, Heat and Healthy Kids - HDR UK Conference",
         "type": "Presentation",
         "date": "15th October 2025",
         "categories": ["presentations"],
