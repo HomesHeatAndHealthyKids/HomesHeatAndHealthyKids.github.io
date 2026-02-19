@@ -31,18 +31,13 @@ PS: Not sure how to get that contact form working? Give formspree.io a try (it's
 
 ## Adding Team Members
   * Please add team members on team.html
-  * Copy HTML code between and including <div class="team-card"></div>
+  * Copy HTML code between and including &lt;div class="team-card"&gt;&lt;/div&gt;
   * Alter the text to show details for the new team member
   * Add headshots to the images/headshots directory
 
-## Adding Events
-  * Please add events on events.html
-  * Copy HTML code between and including <div class="event-card"></div>
-  * Alter the text to show details for the new event
-  * Add event pictures to the images/headshots directory
-
 ## TODO 
-  * Add automatic research outputs
+  * Tidy up Automatic Research Contents
+  * Think about how the events are managed
   * Generate content
 
 
