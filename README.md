@@ -46,6 +46,31 @@ Taken from ChatGPT - sorry El - I should pay attention!
 ## Adding Team Members
   * Please add team members on team.html
   * Copy HTML code between and including &lt;div class="team-card"&gt;&lt;/div&gt;
+```
+<div class="team-card">
+  <div class="team-content">
+    <h3 class="team-name">Micky Mouse</h3>
+    <h4 class="team-role">Data Analyst</h4>
+    <p>
+      I am exploring the impacts of energy efficiency 
+      interventions on the health of young children living in Scotland.
+    </p>
+    <p>
+    <strong>What made you want to be part of the project?</strong>
+    I am a dynamic individual who wants to be part of 
+    something special. He recognised that this team could 
+    be nice for him.
+    </p>
+  </div>
+  <!-- This shows the headshot on the right. 
+  Place before earlier div if picture goes on the left -->  
+  <div class="team-photo">
+    <img src="images/headshots/MM.jpg"
+      alt="Micky Mouse">
+  </div>
+</div>
+```
+
   * You may need to switch the picture link to make sure that the images alternate sides
   * Alter the text to show details for the new team member
   * Add headshots to the images/headshots directory
