@@ -2558,9 +2558,9 @@ margin-bottom: 0.5rem;
 }
 
 /* Badge colours per category */
-.engagements .card-badge { background: #2ecc71; }
-.papers .card-badge { background: #3498db; }
-.presentations .card-badge { background: #9b59b6; }
+.engagements .card-badge { background: #2F5F93; }
+.papers .card-badge { background: #4E86AD; }
+.presentations .card-badge { background: #86AFC4; }
 
 
 .research-card.hidden {

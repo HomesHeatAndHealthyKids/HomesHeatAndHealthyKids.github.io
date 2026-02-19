@@ -16,7 +16,7 @@ const researchItems = [
         "type": "Paper",
         "date": "2025-10-01",
         "categories": ["papers"],
-        "image": "images/pic03.jpg",
+        "image": "images/house_with_germs.png",
         "description": "Statistical analysis of energy ratings and paediatric admissions.",
         "url": "#"
 	},
@@ -25,7 +25,7 @@ const researchItems = [
         "type": "Presentation",
         "date": "2025-11-01",
         "categories": ["presentations"],
-        "image": "images/banner.jpg",
+        "image": "images/house_group.png",
         "description": "Presented at the UK Public Health Science Conference.",
         "url": "#"
 	},
@@ -42,16 +42,16 @@ const researchItems = [
         "title": "Early Childhood Respiratory Infections - Plan",
         "type": "Presentation",
         "categories": ["presentations"],
-        "image": "images/pic02.jpg",
+        "image": "images/radiator.png",
         "date": "2026-03-10",
-        "description": "This talk will describe some of the planned analysis of a linked dataset containing housing data, primary and secondary healthcare – infection counts stratified by housing characteristics, socioeconomic measures, local climate, and annual pollution exposures.",
+        "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare – infection counts stratified by housing characteristics, socioeconomic measures, local climate, and annual pollution exposures.",
         "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
     },
     {
         "title": "Household Interventions",
         "type": "Engagement",
         "categories": ["engagements"],
-        "image": "images/pic03.jpg",
+        "image": "images/chilly_people.png",
         "date": "2026-04-10 - 2026-04-12",
         "description": "The team will be at Dynamic Earth to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
         "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
