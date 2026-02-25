@@ -6,7 +6,7 @@ const researchItems = [
         "title": "Beyond Remuneration for Patient and Public Involvement Group Members",
         "type": "Presentation",
         "categories": ["presentations"],
-        "image": "images/chilly_people.png",
+        "image": "images/house_with_heart.png",
         "date": "16th July 2026",
         "description": "Tracy will be displaying her poster at International Population Data Linkage Network 2026 in Rotterdam.",
         "url": "https://ipdln.org/2026-ipdln-conference/"
