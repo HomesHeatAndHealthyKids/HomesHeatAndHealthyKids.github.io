@@ -48,6 +48,7 @@ Taken from ChatGPT - sorry El - I should pay attention!
   * Copy HTML code between and including &lt;div class="team-card"&gt;&lt;/div&gt;
 ```
 <div class="team-card">
+  <!-- Place image div below here if picture goes on left -->  
   <div class="team-content">
     <h3 class="team-name">Micky Mouse</h3>
     <h4 class="team-role">Data Analyst</h4>
@@ -64,7 +65,7 @@ Taken from ChatGPT - sorry El - I should pay attention!
   </div>
   <!-- This shows the headshot on the right. 
   Place before earlier div if picture goes on the left -->  
-  <div class="team-photo">
+  <div class="team-photo single">
     <img src="images/headshots/MM.jpg"
       alt="Micky Mouse">
   </div>
