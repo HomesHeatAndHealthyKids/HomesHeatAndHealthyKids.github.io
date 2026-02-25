@@ -46,24 +46,6 @@ const researchItems = [
         "image": "images/house_group.png",
         "description": "Livvy Swann presents on the Homes, Heat and Healthy Kids study and the role of underheated homes in preschool respiratory health at the Health Data Research UK Conference.",
         "url": "https://www.hdruk.ac.uk/about/hdr-uk-conference/health-data-research-uk-conference-2025-agenda/"
-	},
-  {
-        "title": "Energy Efficiency and Hospital Admissions",
-        "type": "Paper",
-        "date": "1st October 2025",
-        "categories": ["papers"],
-        "image": "images/house_with_germs.png",
-        "description": "Statistical analysis of energy ratings and paediatric admissions.",
-        "url": "#"
-	},
- 	{
-        "title": "Cold Homes and Child Health",
-        "type": "Engagement",
-        "date": "1st September 2025",
-        "categories": ["engagements"],
-        "image": "images/favicon.png",
-        "description": "Why housing warmth matters for children’s health.",
-        "url": "#"
 	}
   ];
 
