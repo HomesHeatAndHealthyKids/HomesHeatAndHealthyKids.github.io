@@ -6,7 +6,7 @@ const researchItems = [
         "title": "Beyond Remuneration for Patient and Public Involvement Group Members",
         "type": "Presentation",
         "categories": ["presentations"],
-        "image": "images/house_with_heart.png",
+        "image": "images/resources/house_with_heart.png",
         "date": "16th July 2026",
         "description": "Tracy will be displaying her poster at International Population Data Linkage Network 2026 in Rotterdam.",
         "url": "https://ipdln.org/2026-ipdln-conference/"
@@ -15,7 +15,7 @@ const researchItems = [
         "title": "Household Interventions",
         "type": "Engagement",
         "categories": ["engagements"],
-        "image": "images/chilly_people.png",
+        "image": "images/resources/chilly_people.png",
         "date": "10th April 2026",
         "description": "The team will be at Dynamic Earth for 3 days to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
         "url": "https://www.edinburghscience.co.uk/event/university-of-edinburgh-7-days-100-scientists/"
@@ -24,7 +24,7 @@ const researchItems = [
         "title": "Early Childhood Respiratory Infections - Plan",
         "type": "Presentation",
         "categories": ["presentations"],
-        "image": "images/radiator.png",
+        "image": "images/resources/radiator.png",
         "date": "10th March 2026",
         "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare.",
         "url": "https://www.strath.ac.uk/engineering/architecture/"
@@ -33,7 +33,7 @@ const researchItems = [
         "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
         "type": "Paper",
         "categories": ["papers"],
-        "image": "images/pic01.jpg",
+        "image": "images/resources/jumper_with_concerns.jpg",
         "date": "22nd November 2025",
         "description": "Scoping review examining the association between home energy efficiency measures and children's respiratory health, and exploring potential downsides.",
         "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
@@ -43,7 +43,7 @@ const researchItems = [
         "type": "Presentation",
         "date": "15th October 2025",
         "categories": ["presentations"],
-        "image": "images/house_group.png",
+        "image": "images/resources/house_group.png",
         "description": "Livvy Swann presents on the Homes, Heat and Healthy Kids study and the role of underheated homes in preschool respiratory health at the Health Data Research UK Conference.",
         "url": "https://www.hdruk.ac.uk/about/hdr-uk-conference/health-data-research-uk-conference-2025-agenda/"
 	}

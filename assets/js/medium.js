@@ -79,9 +79,6 @@ $(function () {
                                         <div class="u">
                                             <div class="dm">
                                                 <div class="dn">
-                                                    <div>
-                                                        <img alt="${item.author}" style="border-radius: 50%; height: 40px; width: 40px;" src="${profileImage}" class="dp">
-                                                    </div>
                                                     <div class="dr">
                                                         <a href="${author}" target="_blank"> <span class="bx">${item.author}</span></a>
                                                         <span class="af">${month_str} ${day}</span>

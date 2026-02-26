@@ -75,6 +75,13 @@ Taken from ChatGPT - sorry El - I should pay attention!
   * You may need to switch the picture link to make sure that the images alternate sides
   * Alter the text to show details for the new team member
   * Add headshots to the images/headshots directory
+## Adding Resources
+  * Please add resources on resources.html
+  * The resources page has a similar structure to the Teams page 
+  * Copy HTML code between and including &lt;div class="team-card"&gt;&lt;/div&gt; (see earlier Teams section)
+  * You may need to switch the picture link to make sure that the images alternate sides
+  * Alter the text to show details for the new resource
+  * Add suitable images to the images directory
 
 ## Adding Research Outputs
  * Research outputs are added by modifying the JSON stored at the top of assets\js\research.js
@@ -94,12 +101,14 @@ Taken from ChatGPT - sorry El - I should pay attention!
  * Keep the description short if possible
  * Always use the date format above
  * There are several useful images already uploaded "house_cold", "house_with_germs", "house_with_heart", "house_cold", "radiator", and "chilly_people"
+ * If you need to create a new page describing the Research Output, please create a file from the template.html
 
 
 ## TODO 
-  * Embedded videos
   * Team Review
   * Generate content
+  * Add Google Tag Manager
+
 ## Credits:
 
 	Demo Images:
