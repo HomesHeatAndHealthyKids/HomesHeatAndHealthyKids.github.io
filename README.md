@@ -38,10 +38,12 @@ Taken from ChatGPT - sorry El - I should pay attention!
 
 ## Adding Blogs
   * Please write blogs at Medium
-  * Blogs are added to the blogs.html page automatically from a medium feed.
+  * Blogs are added to the research.html page automatically from a medium feed
+  * The 2 most recent blogs are automatically added to the home page
   * The blogs will take some time to appear because the feed is processed by api2json
   * The research page will look for an image within the text and use that as a banner image for the blog
   * Please make sure to include an image
+  * The list of blogs is cached locally so that the webpages are responsive
 
 ## Adding Team Members
   * Please add team members on team.html
@@ -91,23 +93,23 @@ Taken from ChatGPT - sorry El - I should pay attention!
         "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
         "type": "Paper",
         "categories": ["papers"],
-        "image": "images/pic01.jpg",
-        "date": "22nd November 2025",
+        "image": "images/resources/pic01.jpg",
+        "date": "2025-11-02",
         "description": "Scoping review examining the association between home energy efficiency measures and children's respiratory health, and exploring potential downsides.",
         "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
   },
 ```
  * The entries are very finickety - categories can be one of "papers", "presentations", or "engagements"  - the filter buttons will not work otherwise. You can place an entry in two categories (e.g. ["papers", "presentations"])
  * Keep the description short if possible
- * Always use the date format above
- * There are several useful images already uploaded "house_cold", "house_with_germs", "house_with_heart", "house_cold", "radiator", and "chilly_people"
+ * Always use the date format above (YYYY-MM-DD) - it will be reformatted on output, but useful for sorting
+ * There are several useful images already uploaded "house_cold", "house_with_germs", "house_with_heart", "house_cold", "radiator", and "chilly_people" in the resources subdirectory
  * If you need to create a new page describing the Research Output, please create a file from the template.html
 
 
 ## TODO 
   * Team Review
   * Generate content
-  * Add Google Tag Manager
+  * Test Google Tag Manager
 
 ## Credits:
 
