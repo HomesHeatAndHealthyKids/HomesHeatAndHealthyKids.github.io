@@ -1,6 +1,7 @@
 /*
   Data structure example (you can keep adding objects like this)
 */
+
 const researchItems = [
   {
         "title": "Beyond Remuneration for Patient and Public Involvement Group Members",
@@ -49,10 +50,151 @@ const researchItems = [
 	}
   ];
 
-function loadResearch() {
-  const grid = document.getElementById('researchGrid');
+  // Ideally this would be loaded from a separate Javascript or API, but for simplicity we're hardcoding it here.
+async function loadMediumJSON(options = {}) {
+    const {
+        limit = null,
+        cacheMinutes = 30
+    } = options;
 
-  researchItems.forEach(item => {
+    const mediumNames = ["@hhhk_83035"];
+    const cacheKey = "mediumFeedCache";
+    const cacheTTL = cacheMinutes * 60 * 1000;
+
+    const cached = getCachedFeed(cacheKey, cacheTTL);
+    if (cached) return applyLimit(cached, limit);
+
+    const endpoint = "https://api.rss2json.com/v1/api.json";
+    const allArticles = [];
+
+    const responses = await Promise.all(
+        mediumNames.map(name =>
+            fetch(`${endpoint}?rss_url=${encodeURIComponent(
+                `https://medium.com/feed/${name}`
+            )}`)
+        )
+    );
+
+    const jsonData = await Promise.all(responses.map(r => r.json()));
+
+    jsonData.forEach(feed => {
+        if (feed.status === "ok") {
+            feed.items.forEach(item => {
+                allArticles.push(transformItem(item));
+            });
+        }
+    });
+
+    allArticles.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
+
+    setCachedFeed(cacheKey, allArticles);
+
+    return applyLimit(allArticles, limit);
+}
+
+function getCachedFeed(key, ttl) {
+    const stored = localStorage.getItem(key);
+
+    if (!stored) return null;
+
+    const parsed = JSON.parse(stored);
+
+    if (Date.now() - parsed.timestamp > ttl) {
+        localStorage.removeItem(key);
+        return null;
+    }
+
+    return parsed.data;
+}
+
+function setCachedFeed(key, data) {
+    const payload = {
+        timestamp: Date.now(),
+        data: data
+    };
+
+    localStorage.setItem(key, JSON.stringify(payload));
+}
+function applyLimit(array, limit) {
+    if (!limit) return array;
+    return array.slice(0, limit);
+}
+async function fetchFeed(mediumName, endpoint) {
+    const response = await fetch(
+        `${endpoint}?rss_url=${encodeURIComponent(
+            `https://medium.com/feed/${mediumName}?cb=${Date.now()}`
+        )}`
+    );
+
+    const data = await response.json();
+
+    if (data.status !== "ok") {
+        throw new Error(`Failed to fetch feed for ${mediumName}`);
+    }
+
+    return data.items;
+}
+
+function truncateText(text, maxLength) {
+    if (text.length <= maxLength) return text;
+
+    const trimmed = text.substring(0, maxLength);
+    return trimmed.substring(0, trimmed.lastIndexOf(" ")) + "...";
+}
+
+function transformItem(item) {
+    const cleanDescription = stripHtml(item.description);
+    const truncated = truncateText(cleanDescription, 150);
+
+    return {
+        title: item.title,
+        type: "Blog",
+        date: formatDate(item.pubDate),
+        rawDate: item.pubDate,   // used only for sorting
+        categories: ["blogs"],
+        image: extractImage(item.description),
+        description: truncated,
+        url: item.link
+    };
+}
+function stripHtml(html) {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
+}
+
+function extractImage(description) {
+    const match = description.match(/<img[^>]+src="([^">]+)"/);
+    return match ? match[1] : "images/resources/radiator.png";
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
+    });
+}
+
+
+function mergeFeeds(blogArray, otherArray) {
+    const combined = [...blogArray, ...otherArray];
+
+    combined.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
+
+    return combined;
+}
+
+async function loadResearch() {
+
+  const mediumItems = await loadMediumJSON();
+  const grid = document.getElementById('researchGrid');
+  
+  const allItems = mergeFeeds(researchItems, mediumItems);
+
+  
+  allItems.forEach(item => {
     const card = document.createElement('article');
     card.className = `research-card ${item.categories.join(' ')}`;
 

@@ -2496,6 +2496,11 @@ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 gap: 1.5rem;
 }
 
+.frontpage-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+gap: 1.5rem;
+}
 
 .research-card {
 border: 1px solid #ddd;
@@ -2570,6 +2575,8 @@ margin-bottom: 0.5rem;
 .engagements .card-badge { background: #2F5F93; }
 .papers .card-badge { background: #4E86AD; }
 .presentations .card-badge { background: #86AFC4; }
+.blogs .card-badge { background: #4E86AD; }
+
 
 
 .research-card.hidden {
