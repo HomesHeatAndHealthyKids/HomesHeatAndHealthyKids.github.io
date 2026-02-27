@@ -8,7 +8,7 @@ const researchItems = [
         "type": "Presentation",
         "categories": ["presentations"],
         "image": "images/resources/house_with_heart.png",
-        "date": "16th July 2026",
+        "date": "2026-07-16",
         "description": "Tracy will be displaying her poster at International Population Data Linkage Network 2026 in Rotterdam.",
         "url": "https://ipdln.org/2026-ipdln-conference/"
   },
@@ -17,7 +17,7 @@ const researchItems = [
         "type": "Engagement",
         "categories": ["engagements"],
         "image": "images/resources/chilly_people.png",
-        "date": "10th April 2026",
+        "date": "2026-04-10",
         "description": "The team will be at Dynamic Earth for 3 days to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
         "url": "https://www.edinburghscience.co.uk/event/university-of-edinburgh-7-days-100-scientists/"
   },
@@ -26,7 +26,7 @@ const researchItems = [
         "type": "Presentation",
         "categories": ["presentations"],
         "image": "images/resources/radiator.png",
-        "date": "10th March 2026",
+        "date": "2026-03-10",
         "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare.",
         "url": "https://www.strath.ac.uk/engineering/architecture/"
   },
@@ -35,14 +35,14 @@ const researchItems = [
         "type": "Paper",
         "categories": ["papers"],
         "image": "images/resources/jumper_with_concerns.jpg",
-        "date": "22nd November 2025",
+        "date": "2025-11-22",
         "description": "Scoping review examining the association between home energy efficiency measures and children's respiratory health, and exploring potential downsides.",
         "url": "https://doi.org/10.12688/wellcomeopenres.24692.1"
   },
 	{
         "title": "Homes, Heat and Healthy Kids - HDR UK Conference",
         "type": "Presentation",
-        "date": "15th October 2025",
+        "date": "2025-10-15",
         "categories": ["presentations"],
         "image": "images/resources/house_group.png",
         "description": "Livvy Swann presents on the Homes, Heat and Healthy Kids study and the role of underheated homes in preschool respiratory health at the Health Data Research UK Conference.",
@@ -51,47 +51,52 @@ const researchItems = [
   ];
 
   // Ideally this would be loaded from a separate Javascript or API, but for simplicity we're hardcoding it here.
-async function loadMediumJSON(options = {}) {
+ async function loadMediumJSON(options = {}) {
     const {
         limit = null,
         cacheMinutes = 30
     } = options;
 
-    const mediumNames = ["@hhhk_83035"];
     const cacheKey = "mediumFeedCache";
     const cacheTTL = cacheMinutes * 60 * 1000;
 
     const cached = getCachedFeed(cacheKey, cacheTTL);
-    if (cached) return applyLimit(cached, limit);
 
-    const endpoint = "https://api.rss2json.com/v1/api.json";
-    const allArticles = [];
+    // 🔥 If cached exists, return immediately (fast UI)
+    if (cached) {
+        // Trigger background refresh (don’t await)
+        refreshInBackground(cacheKey);
 
-    const responses = await Promise.all(
-        mediumNames.map(name =>
-            fetch(`${endpoint}?rss_url=${encodeURIComponent(
-                `https://medium.com/feed/${name}`
-            )}`)
-        )
-    );
+        return applyLimit(cached, limit);
+    }
 
-    const jsonData = await Promise.all(responses.map(r => r.json()));
+    // No cache → fetch normally
+    const fresh = await fetchMediumFeed();
+    setCachedFeed(cacheKey, fresh);
 
-    jsonData.forEach(feed => {
-        if (feed.status === "ok") {
-            feed.items.forEach(item => {
-                allArticles.push(transformItem(item));
-            });
-        }
-    });
-
-    allArticles.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
-
-    setCachedFeed(cacheKey, allArticles);
-
-    return applyLimit(allArticles, limit);
+    return applyLimit(fresh, limit);
 }
 
+async function refreshInBackground(cacheKey) {
+    try {
+        const freshData = await fetchMediumFeed();
+        const current = getCachedFeed(cacheKey, Infinity);
+
+        // Compare JSON to detect change
+        if (JSON.stringify(freshData) !== JSON.stringify(current)) {
+            setCachedFeed(cacheKey, freshData);
+
+            // 🔔 Notify the app that new data is available
+            window.dispatchEvent(
+                new CustomEvent("mediumFeedUpdated", {
+                    detail: freshData
+                })
+            );
+        }
+    } catch (err) {
+        console.log("Background refresh failed (ignored):", err);
+    }
+}
 function getCachedFeed(key, ttl) {
     const stored = localStorage.getItem(key);
 
@@ -119,20 +124,34 @@ function applyLimit(array, limit) {
     if (!limit) return array;
     return array.slice(0, limit);
 }
-async function fetchFeed(mediumName, endpoint) {
-    const response = await fetch(
-        `${endpoint}?rss_url=${encodeURIComponent(
-            `https://medium.com/feed/${mediumName}?cb=${Date.now()}`
-        )}`
+
+async function fetchMediumFeed() {
+    const mediumNames = ["@hhhk_83035"];
+    const endpoint = "https://api.rss2json.com/v1/api.json";
+
+    const responses = await Promise.all(
+        mediumNames.map(name =>
+            fetch(`${endpoint}?rss_url=${encodeURIComponent(
+                `https://medium.com/feed/${name}`
+            )}`)
+        )
     );
 
-    const data = await response.json();
+    const jsonData = await Promise.all(responses.map(r => r.json()));
 
-    if (data.status !== "ok") {
-        throw new Error(`Failed to fetch feed for ${mediumName}`);
-    }
+    const articles = [];
 
-    return data.items;
+    jsonData.forEach(feed => {
+        if (feed.status === "ok") {
+            feed.items.forEach(item => {
+                articles.push(transformItem(item));
+            });
+        }
+    });
+
+    articles.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
+
+    return articles;
 }
 
 function truncateText(text, maxLength) {
@@ -144,16 +163,14 @@ function truncateText(text, maxLength) {
 
 function transformItem(item) {
     const cleanDescription = stripHtml(item.description);
-    const truncated = truncateText(cleanDescription, 150);
 
     return {
         title: item.title,
         type: "Blog",
-        date: formatDate(item.pubDate),
-        rawDate: item.pubDate,   // used only for sorting
+        date: item.pubDate,
         categories: ["blogs"],
         image: extractImage(item.description),
-        description: truncated,
+        description: cleanDescription,
         url: item.link
     };
 }
@@ -181,7 +198,7 @@ function formatDate(dateString) {
 function mergeFeeds(blogArray, otherArray) {
     const combined = [...blogArray, ...otherArray];
 
-    combined.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
+    combined.sort((a, b) => new Date(b.date) - new Date(a.date));
 
     return combined;
 }
@@ -190,7 +207,7 @@ async function loadResearch() {
 
   const mediumItems = await loadMediumJSON();
   const grid = document.getElementById('researchGrid');
-  
+  grid.innerHTML = ''; // Clear existing content
   const allItems = mergeFeeds(researchItems, mediumItems);
 
   
@@ -205,8 +222,8 @@ async function loadResearch() {
       </div>
       <div class="card-content">
         <h4>${item.title}</h4>
-        <p>${item.date ? `<span class="icon fa-regular fa-calendar accent1"></span> ${item.date}` : ''}</p>
-        <p>${item.description}</p>
+        <p>${item.date ? `<span class="icon fa-regular fa-calendar accent1"></span> ${formatDate(item.date)}` : ''}</p>
+        <p>${truncateText(item.description, 150)}</p>
         <a href="${item.url}" target="_blank" rel="noopener">Read more →</a>
       </div>
     `;
@@ -216,12 +233,15 @@ async function loadResearch() {
 }
 
 
-document.addEventListener('DOMContentLoaded', () => {
-  loadResearch();
-  setupFilters();
+document.addEventListener("DOMContentLoaded", async () => {
+    loadResearch();
+
+    // 🔔 Listen for background updates
+    window.addEventListener("mediumFeedUpdated", (event) => {
+        console.log("Feed updated in background");
+        loadResearch(); // Re-render with new data
+    });
 });
-
-
 
 function setupFilters() {
   const buttons = document.querySelectorAll('.filters button');
