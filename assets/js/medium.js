@@ -1,112 +1,161 @@
-$(function () { 
-    var $content = $('#jsonContent');
-    var mediumNames = ["@hhhk_83035"]; 
-    var apiKey = "<YOUR api.rss2json.com API KEY>"; 
-    var allArticles = [];
-    
-    // Fetch RSS feed from Medium for a given blog
-    function fetchFeed(mediumName) {
-        return $.ajax({
-            url: 'https://api.rss2json.com/v1/api.json',
-            method: 'GET',
-            dataType: 'json',
-            data: { rss_url: 'https://medium.com/feed/' + mediumName + '?cb=' + Date.now()}
-        });
+// mediumService.js
+
+async function loadMediumJSON(options = {}) {
+    const {
+        limit = null,
+        cacheMinutes = 30
+    } = options;
+
+    const mediumNames = ["@hhhk_83035"];
+    const cacheKey = "mediumFeedCache";
+    const cacheTTL = cacheMinutes * 60 * 1000;
+
+    const cached = getCachedFeed(cacheKey, cacheTTL);
+    if (cached) return applyLimit(cached, limit);
+
+    const endpoint = "https://api.rss2json.com/v1/api.json";
+    const allArticles = [];
+
+    const responses = await Promise.all(
+        mediumNames.map(name =>
+            fetch(`${endpoint}?rss_url=${encodeURIComponent(
+                `https://medium.com/feed/${name}`
+            )}`)
+        )
+    );
+
+    const jsonData = await Promise.all(responses.map(r => r.json()));
+
+    jsonData.forEach(feed => {
+        if (feed.status === "ok") {
+            feed.items.forEach(item => {
+                allArticles.push(transformItem(item));
+            });
+        }
+    });
+
+    allArticles.sort((a, b) => new Date(b.rawDate) - new Date(a.rawDate));
+
+    setCachedFeed(cacheKey, allArticles);
+
+    return applyLimit(allArticles, limit);
+}
+
+function getCachedFeed(key, ttl) {
+    const stored = localStorage.getItem(key);
+
+    if (!stored) return null;
+
+    const parsed = JSON.parse(stored);
+
+    if (Date.now() - parsed.timestamp > ttl) {
+        localStorage.removeItem(key);
+        return null;
     }
 
-    // Fetch both blog feeds simultaneously
-    var requests = mediumNames.map(fetchFeed);
+    return parsed.data;
+}
 
-    $.when.apply($, requests).done(function (...args) { 
-        const tuples = (requests.length === 1) ? [args] : args; 
-        tuples.forEach(function (tuple, index) 
-        { 
-            const responseData = tuple[0]; 
-            if (responseData.status === 'ok') { 
-                responseData.items.forEach(function (item) { 
-                    item.source = mediumNames[index]; allArticles.push(item); 
-                });
-            } 
-        }); 
+function setCachedFeed(key, data) {
+    const payload = {
+        timestamp: Date.now(),
+        data: data
+    };
 
+    localStorage.setItem(key, JSON.stringify(payload));
+}
+function applyLimit(array, limit) {
+    if (!limit) return array;
+    return array.slice(0, limit);
+}
+async function fetchFeed(mediumName, endpoint) {
+    const response = await fetch(
+        `${endpoint}?rss_url=${encodeURIComponent(
+            `https://medium.com/feed/${mediumName}?cb=${Date.now()}`
+        )}`
+    );
 
-        // Sort articles by publication date 
-        allArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
+    const data = await response.json();
 
-        // Empty HTML structure to fill by appending each blog
-        var output = '';
+    if (data.status !== "ok") {
+        throw new Error(`Failed to fetch feed for ${mediumName}`);
+    }
 
-        // Loop through all articles in time order
-        allArticles.forEach(function (item) {
-        // NB here "author" is really the feed e.g. "ICU Heart"
-        var author = "https://medium.com/" + item.source; 
-        
-        // Extract image (if any) from the description field
-        var tagIndex = item.description.indexOf('<img'); 
-        var srcIndex = item.description.substring(tagIndex).indexOf('src=') + tagIndex; 
-        var srcStart = srcIndex + 5; 
-        var srcEnd = item.description.substring(srcStart).indexOf('"') + srcStart; 
-        var src = item.description.substring(srcStart, srcEnd);
+    return data.items;
+}
 
-        // Add different circular image depending on whether it's an ICU-H
-        // or a CCF blog post
-        var profileImage = "";
-        if (item.source === "@hhhk_83035") {
-            profileImage = "images/favicon.png"; 
-        } else if (item.source === "critical-care-futures") {
-            profileImage = "images/ccf.png"; 
-        }
+function truncateText(text, maxLength) {
+    if (text.length <= maxLength) return text;
 
-        if (!src.match(/https?:\/\/(medium\.com\/_\/.+)/g)) {
-                var time = item.pubDate;
-                time = time.replace(/\s/, 'T') + 'Z';
-                var formattedDate = new Date(time);
-                var day = formattedDate.getDate();
-                var month = formattedDate.getMonth() + 1;
-                var months = ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                var month_str = months[month - 1];
+    const trimmed = text.substring(0, maxLength);
+    return trimmed.substring(0, trimmed.lastIndexOf(" ")) + "...";
+}
 
-                var trimmedString = item.description.replace(/<img[^>]*>/g, "").substr(0, 250);
-                trimmedString = trimmedString.substr(0, Math.min(trimmedString.length, trimmedString.lastIndexOf(" ")));
+function transformItem(item) {
+    const cleanDescription = stripHtml(item.description);
+    const truncated = truncateText(cleanDescription, 150);
 
-                // Append HTML for blog post
-                output += `
-                    <div class="row">
-                        <div class="col-12 col-centered" style="margin: auto;">
-                            <div class="mainbox">
-                                <div>
-                                    <div class="profile_img">
-                                        <div class="u">
-                                            <div class="dm">
-                                                <div class="dn">
-                                                    <div class="dr">
-                                                        <a href="${author}" target="_blank"> <span class="bx">${item.author}</span></a>
-                                                        <span class="af">${month_str} ${day}</span>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="dsbox">
-                                        <div class="dubox">
-                                            <div class="dvbox">
-                                                <a href="${item.link}" target="_blank"><img src="${src}" class="bhbox" height="210"></a>
-                                            </div>
-                                        </div>
-                                        <a href="${item.link}" target="_blank"><h3 class="eafont">${item.title}</h3></a>
-                                        <div class="blog-cont">
-                                            <p>${trimmedString}...</p>
-                                            <p><a href="${item.link}" target="_blank"> Continue reading...</a></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>`;
-            }
-        });
+    return {
+        title: item.title,
+        type: "Blog",
+        date: formatDate(item.pubDate),
+        rawDate: item.pubDate,   // used only for sorting
+        categories: ["blogs"],
+        image: extractImage(item.description),
+        description: truncated,
+        url: item.link
+    };
+}
+function stripHtml(html) {
+    const div = document.createElement("div");
+    div.innerHTML = html;
+    return div.textContent || div.innerText || "";
+}
 
-    // Display the articles in the content area
-    $content.html(output);
+function extractImage(description) {
+    const match = description.match(/<img[^>]+src="([^">]+)"/);
+    return match ? match[1] : "images/resources/radiator.png";
+}
+
+function formatDate(dateString) {
+    const date = new Date(dateString);
+    return date.toLocaleDateString("en-GB", {
+        day: "numeric",
+        month: "long",
+        year: "numeric"
     });
+}
+
+async function loadMedium() {
+
+  const mediumItems = await loadMediumJSON({
+    limit: 2,          // Show only the latest 5 items
+  });
+  const grid = document.getElementById('researchGrid');
+ 
+ 
+  mediumItems.forEach(item => {
+    const card = document.createElement('article');
+    card.className = `research-card ${item.categories.join(' ')}`;
+
+    card.innerHTML = `
+      <div class="card-image">
+        <span class="card-badge">${item.type}</span>
+        <img src="${item.image}" alt="${item.title}">
+      </div>
+      <div class="card-content">
+        <h4>${item.title}</h4>
+        <p>${item.date ? `<span class="icon fa-regular fa-calendar accent1"></span> ${item.date}` : ''}</p>
+        <p>${item.description}</p>
+        <a href="${item.url}" target="_blank" rel="noopener">Read more →</a>
+      </div>
+    `;
+
+    grid.appendChild(card);
+  });
+}
+
+
+document.addEventListener('DOMContentLoaded', () => {
+  loadMedium();
 });
