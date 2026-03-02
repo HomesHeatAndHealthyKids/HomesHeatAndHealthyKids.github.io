@@ -2496,6 +2496,43 @@ grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
 gap: 1.5rem;
 }
 
+.frontpage-grid {
+display: grid;
+grid-template-columns: repeat(auto-fill, minmax(500px, 1fr));
+gap: 1.5rem;
+}
+
+.frontpage-card {
+border: 1px solid #ddd;
+display: flex;
+flex-direction: column;
+background: #fff;
+font-size: 1rem;
+transition: box-shadow 0.2s ease, transform 0.2s ease;
+max-height: 600px;
+overflow: hidden;
+box-sizing: border-box;
+}
+.frontcard-image {
+  width: 100%;
+  height: 360px;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat	;
+  overflow: hidden;
+  flex: 0 1 auto; /* allows shrinking */
+}
+.frontcard-image img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.frontpage-card:hover {
+box-shadow: 0 6px 12px rgba(0,0,0,0.12);
+transform: translateY(-2px);
+}
 
 .research-card {
 border: 1px solid #ddd;
@@ -2570,6 +2607,8 @@ margin-bottom: 0.5rem;
 .engagements .card-badge { background: #2F5F93; }
 .papers .card-badge { background: #4E86AD; }
 .presentations .card-badge { background: #86AFC4; }
+.blogs .card-badge { background: #4E86AD; }
+
 
 
 .research-card.hidden {
