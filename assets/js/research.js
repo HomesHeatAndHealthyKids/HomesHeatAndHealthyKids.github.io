@@ -266,6 +266,25 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".filters button");
   const cards = document.querySelectorAll(".research-card");
+  const comingUpButton = document.querySelector(".news button:last-child");
+  
+  comingUpButton.addEventListener("click", () => {
+    cards.forEach(card => {
+        filter = "";
+        buttons.forEach( b =>
+                        { 
+                            if (b.classList.contains("active")) {filter = b.dataset.filter;} 
+                        });
+
+        const date = new Date(card.querySelector(".card-content p").textContent.trim());
+        if (date > new Date() && (card.classList.contains(filter) || filter === "all")) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+
+    });
+  });
 
   buttons.forEach(button => {
     button.addEventListener("click", () => {
