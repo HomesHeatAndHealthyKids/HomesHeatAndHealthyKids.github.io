@@ -2470,9 +2470,19 @@
 			height: auto;
 	}
 .filters {
+	float: left;
 	margin-bottom: 1.5rem;
 }
 
+
+.research-row { display: flex; align-items: flex-start; gap: 1rem; }
+
+.research-grid { clear: both; flex: 1 1 auto; /* take remaining space / min-width: 0; / prevents overflow issues */ }
+
+.news { float: right; flex: 0 0 auto; /* size to content / margin-left: auto;/ push to the far right */ }
+
+/* Optional: stack on small screens / @media (max-width: 700px) { .research-row { flex-direction: column; } .news { margin-left: 0; align-self: flex-end; / keep the button right-aligned */ } }
+.filters { grid-area: filters; } .research-grid { grid-area: grid; } .news { grid-area: news; }
 
 .filters button {
 padding: 0.4rem 0.6rem;
@@ -2489,6 +2499,25 @@ background: #C5333A;
 color: white;
 }
 
+.news {
+	margin-bottom: 1.5rem;
+}
+
+
+.news button {
+padding: 0.4rem 0.6rem;
+margin-right: 0.2rem;
+border: none;
+background: #4E86AD;
+border-radius: 4px;
+cursor: pointer;
+}
+
+
+.news button.active {
+background: #C5333A;
+color: white;
+}
 
 .research-grid {
 display: grid;
@@ -2750,7 +2779,15 @@ display: none;
 			}
 
 		@media screen and (max-width: 480px) {
-
+			.filters,
+			.news {
+				float: none;
+				display: block;
+			}
+			.news {
+				margin-top: 0.5rem;
+			}
+	
 			ul.actions:not(.fixed) {
 				-moz-flex-direction: column;
 				-webkit-flex-direction: column;

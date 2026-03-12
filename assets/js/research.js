@@ -266,6 +266,19 @@ document.addEventListener('DOMContentLoaded', async () => {
 document.addEventListener("DOMContentLoaded", () => {
   const buttons = document.querySelectorAll(".filters button");
   const cards = document.querySelectorAll(".research-card");
+  const comingUpButton = document.querySelector(".news button:last-child");
+  
+  comingUpButton.addEventListener("click", () => {
+    cards.forEach(card => {
+      const date = new Date(card.querySelector(".card-content p").textContent.trim());
+        if (date > new Date()) {
+          card.classList.remove("hidden");
+        } else {
+          card.classList.add("hidden");
+        }
+
+    });
+  });
 
   buttons.forEach(button => {
     button.addEventListener("click", () => {
