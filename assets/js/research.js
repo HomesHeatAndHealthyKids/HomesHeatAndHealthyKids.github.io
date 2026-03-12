@@ -270,8 +270,14 @@ document.addEventListener("DOMContentLoaded", () => {
   
   comingUpButton.addEventListener("click", () => {
     cards.forEach(card => {
-      const date = new Date(card.querySelector(".card-content p").textContent.trim());
-        if (date > new Date()) {
+        filter = "";
+        buttons.forEach( b =>
+                        { 
+                            if (b.classList.contains("active")) {filter = b.dataset.filter;} 
+                        });
+
+        const date = new Date(card.querySelector(".card-content p").textContent.trim());
+        if (date > new Date() && (card.classList.contains(filter) || filter === "all")) {
           card.classList.remove("hidden");
         } else {
           card.classList.add("hidden");

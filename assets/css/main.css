@@ -2474,15 +2474,13 @@
 	margin-bottom: 1.5rem;
 }
 
+.news { float: right; flex: 0 0 auto; /* size to content / margin-left: auto;/ push to the far right */ }
 
 .research-row { display: flex; align-items: flex-start; gap: 1rem; }
 
 .research-grid { clear: both; flex: 1 1 auto; /* take remaining space / min-width: 0; / prevents overflow issues */ }
 
-.news { float: right; flex: 0 0 auto; /* size to content / margin-left: auto;/ push to the far right */ }
 
-/* Optional: stack on small screens / @media (max-width: 700px) { .research-row { flex-direction: column; } .news { margin-left: 0; align-self: flex-end; / keep the button right-aligned */ } }
-.filters { grid-area: filters; } .research-grid { grid-area: grid; } .news { grid-area: news; }
 
 .filters button {
 padding: 0.4rem 0.6rem;
@@ -2508,7 +2506,7 @@ color: white;
 padding: 0.4rem 0.6rem;
 margin-right: 0.2rem;
 border: none;
-background: #4E86AD;
+background: #86AFC4;
 border-radius: 4px;
 cursor: pointer;
 }
