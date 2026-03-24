@@ -30,6 +30,15 @@ const researchItems = [
         "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare.",
         "url": "https://www.strath.ac.uk/engineering/architecture/"
   },
+{        
+        "title": "Glasgow Science Festival",
+        "type": "Engagement",
+        "categories": ["engagements"],
+        "image": "images/resources/snowflake.png",
+        "date": "2026-06-13",
+        "description": "The team will be at the Glasgow Science Festival to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
+        "url": "https://www.gla.ac.uk/events/sciencefestival/aboutus/"
+  },
   {        
         "title": "Castlebrae Community Science Festival",
         "type": "Engagement",
