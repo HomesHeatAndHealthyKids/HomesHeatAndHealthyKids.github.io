@@ -30,6 +30,15 @@ const researchItems = [
         "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare.",
         "url": "https://www.strath.ac.uk/engineering/architecture/"
   },
+  {        
+        "title": "Castlebrae Community Science Festival",
+        "type": "Engagement",
+        "categories": ["engagements"],
+        "image": "images/resources/parent_with_child.png",
+        "date": "2026-03-27",
+        "description": "The Community Science Festival is happening at Castlebrae Community Campus! Join us for an afternoon filled with exciting experiments, hands-on activities, and interactive demonstrations.",
+        "url": "https://www.eventbrite.co.uk/e/community-science-festival-castlebrae-2026-tickets-1983762665534?aff=oddtdtcreator"
+  },
   {
         "title": "The Impact of Home Energy Efficiency Measures on Children’s Respiratory Health",
         "type": "Paper",
