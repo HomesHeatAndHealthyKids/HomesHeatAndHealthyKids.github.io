@@ -2775,7 +2775,14 @@ display: none;
 			ul.actions.fit.stacked {
 				width: 100%;
 			}
-
+        @media screen and (max-height: 1080px) {
+				section.box.special {
+				margin-top: 8rem; /* push down */
+				}
+				#main {
+				padding-top: 0rem;
+				}
+			}
 		@media screen and (max-width: 480px) {
 			.filters,
 			.news {
@@ -3426,7 +3433,7 @@ body {
 	#banner {
 		background-attachment: scroll,							fixed;
 		background-color: #2F5F93;
-		background-image: url("../../images/hhhk_banner.png");
+		background-image: url("../../images/hhhk_banner_alt.png");
 		background-position: top, center;
 		background-repeat: no-repeat;
 		background-size: cover;
@@ -3671,18 +3678,34 @@ body {
 				opacity: 0.75;
 			}
 
-		#footer .copyright {
+			#footer .copyright {
 			display: flex;
+			flex-wrap: wrap;
+			justify-content: space-between;
 			align-items: center;
-			padding: 0;
-			margin: 0;
-			list-style: none;
 			}
 
 			#footer .copyright a {
 				color: inherit;
 			}
+		#footer .right-group {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		text-align: right;
+		}
 
+		#footer .logo {
+		height: 40px;   /* same height for both */
+		width: auto;
+		vertical-align: middle;
+		}
+
+		#footer .funded {
+		white-space: nowrap;
+		font-size: 0.9rem;
+		}
+		
 		#footer .copyright li {
 		list-style: none;
 		margin-left: 1em;
@@ -3708,33 +3731,51 @@ body {
 		.copyright .right-group {
 		position: relative;
 		display: inline-flex;
-		flex-direction: column;
+		flex-direction: row;
 		align-items: flex-end;
+		gap: 1rem;
 		color:#000000;
-		margin-right: 2rem;   /* ⬅️ controls how far from right edge */
+		margin-right: 2rem;
 		}
 
-		/* Right-hand stack container */
-		#footer .copyright .funded,
-		#footer .copyright .logo {
-		position: relative;
-		}
+/* Right group: SDSCT to left, Wellcome stack to right */
+	.copyright .right-group {
+	position: relative;
+	display: inline-flex;
+	flex-direction: row;
+	align-items: center;    /* align logos vertically */
+	gap: 2ch;              /* at least 2-char gap */
+	color:#000000;
+	margin-right: 2rem;
+	}
 
-		/* Logo */
-		#footer .copyright .logo {
-		height: 96px;
-		display: block;
-		right: 0;
-		}
+	/* Wellcome stack layout: text top, logo middle, grant number bottom */
+	#footer .copyright .wellcome-stack {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: center;
+	gap: 0.2rem;
+	}
 
-		/* "Funded by" over the logo */
-		#footer .copyright .funded {
-		position: absolute;
-		right: 0;
-		bottom: 100%;       /* sits above the logo */
-		font-size: 0.75rem;
-		color: #000000;
-		white-space: nowrap;
+	#footer .copyright .funded,
+	#footer .copyright .grant-number {
+	font-size: 0.75rem;
+	color: #000;
+	}
+
+	/* Logo */
+	#footer .copyright .logo {
+	height: 96px;
+	display: block;
+	width: auto;
+	}
+
+	/* SDSCT: same height, left of Wellcome, horizontal spacing from gap */
+	#footer .copyright .sdsct-logo {
+	height: 96px;
+	width: auto;
+	margin: 0;
 		}
 
 /* CTA */

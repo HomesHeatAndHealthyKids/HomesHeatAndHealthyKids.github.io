@@ -25,11 +25,15 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const footHTML= `
     <ul class="copyright">
-      <li class="left">Centre for Medical Informatics<br>Usher Institute<br>5-7 Little France Road<br>Edinburgh BioQuarter - Gate 3<br>Edinburgh EH16 4UX</p><p><a href="privacy.html">Privacy Notice</a></p></li>
-      <li class="right-group" style="text-align: right;">
-        <span class="funded">Funded by</span>
-        <img src="images/wellcome-logo.jpg" alt="Wellcome" class="logo">
-        [308485/Z/23/Z]<br>
+       <li class="left"><br><br>Centre for Medical Informatics<br>Usher Institute<br>5-7 Little France Road<br>Edinburgh BioQuarter - Gate 3<br>Edinburgh EH16 4UX</p><p><a href="privacy.html">Privacy Notice</a></p></li>
+       <li class="right-group">
+        <img src="images/SDSCT-logo.png" alt="SDSCT" class="logo sdsct-logo">
+        <div class="wellcome-stack">
+          <span class="funded">Funded by</span>
+          <img src="images/wellcome-logo.jpg" alt="Wellcome" class="logo">
+          <span class="grant-number">[308485/Z/23/Z]</span>
+        </div>
+
       </li>
     </ul>
   `;
