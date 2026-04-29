@@ -31,13 +31,13 @@ const researchItems = [
         "url": "https://www.strath.ac.uk/engineering/architecture/"
   },
 {        
-        "title": "Glasgow Science Festival",
+        "title": "Glasgow Science Festival - Staying Warm and Well",
         "type": "Engagement",
         "categories": ["engagements"],
-        "image": "images/resources/snowflake.png",
+        "image": "https://www.gla.ac.uk/media/Media_1065394_smxx.jpg",
         "date": "2026-06-13",
-        "description": "The team will be at the Glasgow Science Festival to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
-        "url": "https://www.gla.ac.uk/events/sciencefestival/aboutus/"
+        "description": "The team will be at Glasgow University to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
+        "url": "https://www.gla.ac.uk/events/sciencefestival/gsf2026/cheers/programme/allevents/arcdgms/"
   },
   {        
         "title": "Castlebrae Community Science Festival",
