@@ -13,15 +13,25 @@ const researchItems = [
         "url": "https://ipdln.org/2026-ipdln-conference/"
   },
   {
-        "title": "Household Interventions",
+        "title": "7 Days, 100 Scientists - Dynamic Earth",
         "type": "Engagement",
         "categories": ["engagements"],
         "image": "images/resources/chilly_people.png",
         "date": "2026-04-10",
-        "description": "The team will be at Dynamic Earth for 3 days to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
-        "url": "https://www.edinburghscience.co.uk/event/university-of-edinburgh-7-days-100-scientists/"
+        "description": "The team were at Dynamic Earth for 3 days to engage with children about the impact of housing on health.",
+        "url": "file:///C:/Users/twilding/Downloads/https___www.edinburghscience.co.uk_wp-content_uploads_2026_02_ESF-Programme-2026.pdf"
   },
   {
+        "title": "Four Days Inside Government",
+        "type": "Engagement",
+        "categories": ["engagements"],
+        "image": "images/resources/arctic_blast.png",
+        "date": "2026-04-20",
+        "description": "Livvy Swann reflects on her Royal Society Policy Pairing Scheme experience, exploring policymaking and science communication",
+        "url": "https://usher.ed.ac.uk/news-events/features/four-days-inside-government-reflections-from-the-royal-society-policy-pairing-scheme"
+  },
+  {
+  
         "title": "Early Childhood Respiratory Infections - Plan",
         "type": "Presentation",
         "categories": ["presentations"],
@@ -30,7 +40,7 @@ const researchItems = [
         "description": "This talk will describe some of the planned analysis of a linked Lothians-region dataset containing housing data, primary and secondary healthcare.",
         "url": "https://www.strath.ac.uk/engineering/architecture/"
   },
-{        
+ {        
         "title": "Glasgow Science Festival - Staying Warm and Well",
         "type": "Engagement",
         "categories": ["engagements"],
