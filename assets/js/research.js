@@ -31,6 +31,15 @@ const researchItems = [
         "url": "https://usher.ed.ac.uk/news-events/features/four-days-inside-government-reflections-from-the-royal-society-policy-pairing-scheme"
   },
   {
+        "title": "Health and Housing Linkage Across TREs",
+        "type": "Presentation",
+        "categories": ["presentations"],
+        "image": "images/resources/house_group.png",
+        "date": "2026-05-27",
+        "description": "Dr Jess Butler (Lead Data Scientist, NHS Grampian)  presented on her work linking Health and Housing Data across Trusted Research Environments. The project used a novel linkage of housing and health data to analyse the health of vulnerable populations, meet local needs and track impact",
+        "url": "https://teams.microsoft.com/l/meetingrecap?driveId=b%21fmrZLNnF0EqtA53iQU_xMYUAfovptFxAocbWexc5ke9hIHLFeqw3QphVCCvBHfeh&driveItemId=01QWYW7NJQY6F673P7RZD2SWB7JEFZMDBK&sitePath=https%3A%2F%2Fuoe-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Foswann_ed_ac_uk%2FIQAwx4vv7f-OR6lYP0kLlgwqAaHY7KYc99WfwKj0wLxddXM&fileUrl=https%3A%2F%2Fuoe-my.sharepoint.com%2F%3Av%3A%2Fg%2Fpersonal%2Foswann_ed_ac_uk%2FIQAwx4vv7f-OR6lYP0kLlgwqAaHY7KYc99WfwKj0wLxddXM&iCalUid=040000008200E00074C5B7101A82E00800000000346BE8A23AE8DC010000000000000000100000006FAE66E514897F45893934224A962080&threadId=19%3Ameeting_OTUzNDI4MDEtMzM4Yy00NjQ5LWIzNzMtZTM4ZWE4ZWY4YTQw%40thread.v2&organizerId=6b008deb-e397-4785-a709-e89e9372c23a&tenantId=2e9f06b0-1669-4589-8789-10a06934dc61&callId=534168b4-8680-46f5-8dda-c940ab5c6831&threadType=Meeting&meetingType=Scheduled&subType=RecapSharingLink_RecapChiclet"
+  },
+  {
   
         "title": "Healthy Urban Places Seminar - Healthy Homes Special",
         "type": "Presentation",
