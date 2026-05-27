@@ -32,6 +32,16 @@ const researchItems = [
   },
   {
   
+        "title": "Healthy Urban Places Seminar - Healthy Homes Special",
+        "type": "Presentation",
+        "categories": ["presentations"],
+        "image": "images/resources/boilers.png",
+        "date": "2026-03--25",
+        "description": "Livvy talks to Born In Bradford about understanding the connections between underheated homes and preschool children's respiratory health in Scotland.",
+        "url": "https://borninbradford.nhs.uk/events/healthy-urban-places-seminar-healthy-homes-special/"
+  },
+  {
+  
         "title": "Early Childhood Respiratory Infections - Plan",
         "type": "Presentation",
         "categories": ["presentations"],
