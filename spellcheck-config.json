@@ -23,6 +23,6 @@
     "assets/css/**",
     "elements.html",
     "assets/js/jquery.**",
-    "assets/js/utils.js"
+    "assets/js/util.js"
   ]
 }
