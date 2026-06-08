@@ -1,5 +1,5 @@
 # Lychee configuration (https://github.com/lycheeverse/lychee)
-verbose = true
+verbose = "info"
 no_progress = true
 max_concurrency = 10
 timeout = 20
@@ -8,7 +8,7 @@ max_retries = 3
 cache = true
 
 # Treat common redirects / throttling as OK
-accept = [200, 201, 202, 203, 204, 205, 206, 301, 302, 303, 307, 308, 403, 429]
+accept = ["200", "201", "202", "203", "204", "205", "206", "301", "302", "303", "307", "308", "403", "429"]
 
 # Ignore specific URLs (regex). Add your own whitelisted links here.
 exclude = [
