@@ -1,0 +1,34 @@
+# Lychee configuration (https://github.com/lycheeverse/lychee)
+verbose = true
+no_progress = true
+max_concurrency = 10
+timeout = 20
+retry_wait_time = 2
+max_retries = 3
+cache = true
+
+# Treat common redirects / throttling as OK
+accept = [200, 201, 202, 203, 204, 205, 206, 301, 302, 303, 307, 308, 403, 429]
+
+# Ignore specific URLs (regex). Add your own whitelisted links here.
+exclude = [
+  "https?://localhost(:\\d+)?/.*",
+  "https?://127\\.0\\.0\\.1(:\\d+)?/.*",
+  "mailto:.*",
+  "tel:.*",
+  ".*#.*$",                      # fragment-only anchors
+  "https://example\\.com/.*",    # add whitelist URLS
+  "https://example\\.ac\\.uk/.*"
+]
+
+# Skip checking links in these paths within the repository (when scanning files)
+exclude_path = [
+  "node_modules",
+  "vendor",
+  "_site",
+  "public",
+  "dist"
+]
+
+# Optional: set a friendlier user agent if some sites block bots
+user_agent = "Mozilla/5.0 (compatible; lychee-link-checker; +https://github.com/lycheeverse/lychee)"

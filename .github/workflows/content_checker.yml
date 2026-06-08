@@ -21,7 +21,7 @@ jobs:
       - name: CSpell
         uses: streetsidesoftware/cspell-action@v6
         with:
-          config: ./cspell.json
+          config: ./spellcheck-config.json
           # Limit to common web repo file types
           files: |
             **/*.md
@@ -44,12 +44,12 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config ./lychee.toml .
+          args: --config ./linkcheck-config.toml .
       - name: Fail if links are broken
         run: exit ${{ steps.lychee.outputs.exit_code }}
 
   linkcheck_site:
-    name: Link check (live site, daily 02:00)
+    name: Link check (live site, weekly 02:07 UTC on Monday)
     runs-on: ubuntu-latest
     if: github.event_name == 'schedule'
     steps:
@@ -57,6 +57,6 @@ jobs:
         id: lychee
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config ./lychee.toml ${{ env.SITE_URL }}
+          args: --config ./linkcheck-config.toml ${{ env.SITE_URL }}
       - name: Fail if links are broken
         run: exit ${{ steps.lychee.outputs.exit_code }}

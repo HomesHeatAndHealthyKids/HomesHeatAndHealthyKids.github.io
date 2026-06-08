@@ -1,0 +1,24 @@
+{
+  "version": "0.2",
+  "language": "en-GB",
+  "dictionaries": ["en-gb", "project-words"],
+  "dictionaryDefinitions": [
+    {
+      "name": "project-words",
+      "path": ".github/project-whitelist.txt",
+      "addWords": true
+    }
+  ],
+  "ignorePaths": [
+    "node_modules/**",
+    "vendor/**",
+    "dist/**",
+    ".git/**",
+    ".github/**/project-whitelist.txt",
+    "_site/**",
+    "public/**",
+    "package-lock.json",
+    "yarn.lock",
+    "poetry.lock"
+  ]
+}
