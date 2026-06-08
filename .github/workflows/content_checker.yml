@@ -1,0 +1,62 @@
+name: Spelling and link checks
+
+on:
+  push:
+    branches: [ main ]   # change if your default branch is different
+  pull_request:
+  schedule:
+    - cron: "7 2 * * 1"  # 02:07 UTC on Monday (note: UK local time shifts with DST)
+
+permissions:
+  contents: read
+
+env:
+  SITE_URL: https://homesheatandhealthykids.github.io/  # Our published site
+jobs:
+  spellcheck:
+    name: Spell check (UK English)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: CSpell
+        uses: streetsidesoftware/cspell-action@v6
+        with:
+          config: ./cspell.json
+          # Limit to common web repo file types
+          files: |
+            **/*.md
+            **/*.html
+            **/*.yml
+            **/*.yaml
+            **/*.json
+            **/*.css
+            **/*.scss
+            **/*.js
+          incremental_files_only: ${{ github.event_name == 'pull_request' }}
+
+  linkcheck_repo:
+    name: Link check (repository files)
+    runs-on: ubuntu-latest
+    if: github.event_name != 'schedule'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Lychee (scan repo)
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config ./lychee.toml .
+      - name: Fail if links are broken
+        run: exit ${{ steps.lychee.outputs.exit_code }}
+
+  linkcheck_site:
+    name: Link check (live site, daily 02:00)
+    runs-on: ubuntu-latest
+    if: github.event_name == 'schedule'
+    steps:
+      - name: Lychee (scan live site)
+        id: lychee
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config ./lychee.toml ${{ env.SITE_URL }}
+      - name: Fail if links are broken
+        run: exit ${{ steps.lychee.outputs.exit_code }}
