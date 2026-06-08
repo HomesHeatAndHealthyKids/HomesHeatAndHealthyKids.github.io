@@ -21,6 +21,7 @@
     "yarn.lock",
     "poetry.lock",
     "assets/css/**",
-    "elements.html"
+    "elements.html",
+    "assets/js/jquery.**",
   ]
 }
