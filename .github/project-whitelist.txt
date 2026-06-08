@@ -19,3 +19,11 @@ fontawesome
 ajlkn
 CDXRFJFPD
 Wellcome
+scrollex
+radtastic
+msallowfullscreen
+Castlebrae
+dropotron
+sdsctwebkitallowfullscreen
+mozallowfullscreen
+wellbeing
