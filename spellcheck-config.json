@@ -19,6 +19,8 @@
     "public/**",
     "package-lock.json",
     "yarn.lock",
-    "poetry.lock"
+    "poetry.lock",
+    "assets/css/**",
+    "elements.html"
   ]
 }

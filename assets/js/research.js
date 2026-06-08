@@ -19,7 +19,7 @@ const researchItems = [
         "image": "images/resources/chilly_people.png",
         "date": "2026-04-10",
         "description": "The team were at Dynamic Earth for 3 days to engage with children about the impact of housing on health.",
-        "url": "file:///C:/Users/twilding/Downloads/https___www.edinburghscience.co.uk_wp-content_uploads_2026_02_ESF-Programme-2026.pdf"
+        "url": "https://www.edinburghscience.co.uk/wp-content/uploads/2026/02/ESF-Programme-2026.pdf"
   },
   {
         "title": "Four Days Inside Government",
