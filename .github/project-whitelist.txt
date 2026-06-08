@@ -24,6 +24,11 @@ radtastic
 msallowfullscreen
 Castlebrae
 dropotron
-sdsctwebkitallowfullscreen
+sdsct
+webkitallowfullscreen
 mozallowfullscreen
 wellbeing
+mobilep
+noopener
+frontcard
+finickety
