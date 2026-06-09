@@ -1,0 +1,126 @@
+# scripts/ga_report_blocks.py
+import json
+import os
+from datetime import datetime, timedelta
+from google.analytics.data_v1beta import BetaAnalyticsDataClient
+from google.analytics.data_v1beta.types import DateRange, Dimension, Metric, RunReportRequest, OrderBy
+
+PROPERTY_ID = os.environ.get("GA4_PROPERTY_ID")
+BASE_URL = os.environ.get("WEBSITE_BASE_URL", "").rstrip("/")
+
+if not PROPERTY_ID:
+    raise SystemExit("Missing GA4_PROPERTY_ID")
+
+client = BetaAnalyticsDataClient()
+
+def fmt_int(n):
+    return f"{int(round(float(n or 0))):,}"
+
+def fmt_secs_to_min_sec(seconds):
+    s = int(round(float(seconds or 0)))
+    m, r = divmod(s, 60)
+    return f"{m}m {r:02d}s"
+
+def pct_change(curr, prev):
+    c = float(curr or 0)
+    p = float(prev or 0)
+    if p == 0:
+        return {"txt": "0.0%" if c == 0 else "+∞", "up": c > 0, "zero": c == 0}
+    v = (c - p) / p * 100.0
+    return {"txt": f"{'+' if v > 0 else ''}{v:.1f}%", "up": v > 0, "zero": abs(v) < 1e-9}
+
+def arrow(ch):
+    if ch["zero"]:
+        return "•"
+    return "▲" if ch["up"] else "▼"
+
+def yesterday_iso():
+    d = datetime.utcnow().date() - timedelta(days=1)
+    return d.isoformat()
+
+def fetch_totals(start, end):
+    req = RunReportRequest(
+        property=f"properties/{PROPERTY_ID}",
+        date_ranges=[DateRange(start_date=start, end_date=end)],
+        metrics=[
+            Metric(name="sessions"),
+            Metric(name="totalUsers"),
+            Metric(name="newUsers"),
+            Metric(name="screenPageViews"),
+            Metric(name="averageSessionDuration"),
+        ],
+    )
+    res = client.run_report(req)
+    row = res.rows[0].metric_values if res.rows else []
+    return {
+        "sessions": float(row[0].value) if len(row) > 0 else 0,
+        "users": float(row[1].value) if len(row) > 1 else 0,
+        "newUsers": float(row[2].value) if len(row) > 2 else 0,
+        "views": float(row[3].value) if len(row) > 3 else 0,
+        "avgSessionDuration": float(row[4].value) if len(row) > 4 else 0,
+    }
+
+def fetch_top_pages(start, end, limit=5):
+    req = RunReportRequest(
+        property=f"properties/{PROPERTY_ID}",
+        date_ranges=[DateRange(start_date=start, end_date=end)],
+        dimensions=[Dimension(name="pageTitle"), Dimension(name="pagePath")],
+        metrics=[Metric(name="screenPageViews")],
+        order_bys=[OrderBy(metric=OrderBy.MetricOrderBy(metric_name="screenPageViews"), desc=True)],
+        limit=limit,
+    )
+    res = client.run_report(req)
+    items = []
+    for r in res.rows or []:
+        title = (r.dimension_values[0].value if len(r.dimension_values) > 0 else "(untitled)") or "(untitled)"
+        path = r.dimension_values[1].value if len(r.dimension_values) > 1 else ""
+        views = float(r.metric_values[0].value) if r.metric_values else 0
+        items.append({"title": title.replace("\n", " "), "path": path, "views": views})
+    return items
+
+def main():
+    curr = fetch_totals("7daysAgo", "yesterday")
+    prev = fetch_totals("14daysAgo", "8daysAgo")
+    top = fetch_top_pages("7daysAgo", "yesterday", 5)
+
+    ch_sessions = pct_change(curr["sessions"], prev["sessions"])
+    ch_users = pct_change(curr["users"], prev["users"])
+    ch_new = pct_change(curr["newUsers"], prev["newUsers"])
+    ch_views = pct_change(curr["views"], prev["views"])
+
+    period_text = f"Last 7 days ending {yesterday_iso()} (UTC)"
+
+    fields = [
+        {"type": "mrkdwn", "text": f"*Sessions*\n{fmt_int(curr['sessions'])} ({arrow(ch_sessions)} {ch_sessions['txt']})"},
+        {"type": "mrkdwn", "text": f"*Users*\n{fmt_int(curr['users'])} ({arrow(ch_users)} {ch_users['txt']})"},
+        {"type": "mrkdwn", "text": f"*New users*\n{fmt_int(curr['newUsers'])} ({arrow(ch_new)} {ch_new['txt']})"},
+        {"type": "mrkdwn", "text": f"*Views*\n{fmt_int(curr['views'])} ({arrow(ch_views)} {ch_views['txt']})"},
+        {"type": "mrkdwn", "text": f"*Avg. session duration*\n{fmt_secs_to_min_sec(curr['avgSessionDuration'])}"},
+    ]
+
+    top_lines = []
+    for i, p in enumerate(top, start=1):
+        title = p["title"]
+        views = fmt_int(p["views"])
+        if BASE_URL and p["path"]:
+            path = p["path"] if p["path"].startswith("/") else f"/{p['path']}"
+            url = f"{BASE_URL}{path}"
+            top_lines.append(f"{i}. <{url}|{title}> — {views} views")
+        else:
+            top_lines.append(f"{i}. {title} — {views} views")
+
+    blocks = [
+        {"type": "header", "text": {"type": "plain_text", "text": "Weekly GA4 report"}},
+        {"type": "context", "elements": [{"type": "mrkdwn", "text": period_text}]},
+        {"type": "section", "fields": fields},
+        {"type": "divider"},
+        {"type": "section", "text": {"type": "mrkdwn", "text": f"*Top pages*\n{('\n'.join(top_lines) or '_No data_')}"}},
+        {"type": "context", "elements": [{"type": "mrkdwn", "text": f"Property: {PROPERTY_ID} • Generated by GitHub Actions"}]},
+    ]
+
+    with open("slack_blocks.json", "w", encoding="utf-8") as f:
+        json.dump(blocks, f, ensure_ascii=False)
+    print("Wrote slack_blocks.json")
+
+if __name__ == "__main__":
+    main()
