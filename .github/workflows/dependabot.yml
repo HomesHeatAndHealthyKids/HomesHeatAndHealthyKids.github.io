@@ -1,0 +1,32 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"                  # Dependabot scans all workflows in .github/workflows
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "08:00"
+      timezone: "Europe/London"
+    open-pull-requests-limit: 10
+    labels:
+      - "dependencies"
+      - "ci"
+      - "content-checker"
+    commit-message:
+      prefix: "ci(content-checker)"
+      include: "scope"
+    groups:
+      cspell-actions:
+        patterns:
+          - "streetsidesoftware/*"  # e.g., streetsidesoftware/cspell-action
+          - "cspell*"
+      lychee-actions:
+        patterns:
+          - "lycheeverse/*"         # e.g., lycheeverse/lychee-action
+          - "lychee*"
+      other-actions:
+        patterns:
+          - "*"                     # everything else
+        exclude-patterns:
+          - "streetsidesoftware/*"
+          - "lycheeverse/*"
