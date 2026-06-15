@@ -5,7 +5,7 @@ on:
     branches: [ main ]   # change if your default branch is different
   pull_request:
   schedule:
-    - cron: "7 2 * * 1"  # 02:07 UTC on Monday (note: UK local time shifts with DST)
+    - cron: "7 10 * * 1"  # 02:07 UTC on Monday (note: UK local time shifts with DST)
 
 permissions:
   contents: read
@@ -53,6 +53,9 @@ jobs:
     runs-on: ubuntu-latest
     if: github.event_name == 'schedule'
     steps:
+      - uses: actions/checkout@v4
+      - name: check_path (search for config)
+        run: | pwd ls -la find . -maxdepth 3 -name 'linkcheck-config.toml'
       - name: Lychee (scan live site)
         id: lychee
         uses: lycheeverse/lychee-action@v2
