@@ -34,3 +34,4 @@ frontcard
 finickety
 UKIEG
 SHCS
+precarity
