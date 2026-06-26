@@ -112,7 +112,16 @@ const researchItems = [
         "date": "2026-09-05",
         "description": "The Orkney International Science Festival will return this year. Join the team for an exciting time in the beautiful Orkney Islands.",
         "url": "https://www.orkney.com/events/orkney-international-science-festival"
-    }
+    },
+    {
+        "title": "Housing Matters: How did we get and where are we going?",
+        "type": "Presentation",
+        "date": "2026-09-02",
+        "categories": ["presentations"],
+        "image": "images/resources/house_with_germs.png",
+        "description": "Tim Wilding will present on the effects of Housing Precarity.",
+        "url": "https://housingevidence.ac.uk/event/cache-conference/"
+	}
   ];
 
   // Ideally this would be loaded from a separate Javascript or API, but for simplicity we're hardcoding it here.
