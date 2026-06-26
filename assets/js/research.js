@@ -110,7 +110,7 @@ const researchItems = [
         "categories": ["engagements"],
         "image": "images/resources/parent_with_child.png",
         "date": "2026-09-05",
-        "description": "The Orkney International Science Festival will return this year. Join the team for an exciting time in the beatiful Orkney Islands.",
+        "description": "The Orkney International Science Festival will return this year. Join the team for an exciting time in the beautiful Orkney Islands.",
         "url": "https://www.orkney.com/events/orkney-international-science-festival"
     }
   ];

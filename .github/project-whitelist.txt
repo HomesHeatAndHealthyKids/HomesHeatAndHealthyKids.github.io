@@ -32,3 +32,5 @@ mobilep
 noopener
 frontcard
 finickety
+UKIEG
+SHCS
