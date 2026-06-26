@@ -94,7 +94,25 @@ const researchItems = [
         "image": "images/resources/house_group.png",
         "description": "Livvy Swann presents on the Homes, Heat and Healthy Kids study and the role of underheated homes in preschool respiratory health at the Health Data Research UK Conference.",
         "url": "https://www.hdruk.ac.uk/about/hdr-uk-conference/health-data-research-uk-conference-2025-agenda/"
-	}
+	},
+    {
+        "title": "Homes, Heat and Healthy Kids - UKIEG Conference",
+        "type": "Presentation",
+        "date": "2026-06-25",
+        "categories": ["presentations"],
+        "image": "images/resources/house_with_germs.png",
+        "description": "Tim Wilding presented on the SHCS. Caroline presented on the Warmer Kiwi's study. And Eleanor Harrison won best poster presentation.",
+        "url": "https://hestia-network.org/ukieg-conference-agm/"
+	},
+    {        
+        "title": "Orkney Science Festival",
+        "type": "Engagement",
+        "categories": ["engagements"],
+        "image": "images/resources/parent_with_child.png",
+        "date": "2026-09-05",
+        "description": "The Orkney International Science Festival will return this year. Join the team for an exciting time in the beatiful Orkney Islands.",
+        "url": "https://www.orkney.com/events/orkney-international-science-festival"
+    }
   ];
 
   // Ideally this would be loaded from a separate Javascript or API, but for simplicity we're hardcoding it here.
