@@ -114,7 +114,7 @@ const researchItems = [
         "url": "https://www.orkney.com/events/orkney-international-science-festival"
     },
     {
-        "title": "Housing Matters: How did we get and where are we going?",
+        "title": "Housing Matters: How did we get here and where are we going?",
         "type": "Presentation",
         "date": "2026-09-02",
         "categories": ["presentations"],
