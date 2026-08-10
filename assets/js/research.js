@@ -121,6 +121,15 @@ const researchItems = [
         "image": "images/resources/house_with_germs.png",
         "description": "Tim Wilding will present on the effects of Housing Precarity.",
         "url": "https://housingevidence.ac.uk/event/cache-conference/"
+	},
+        {
+        "title": "Doors Open Day",
+        "type": "Engagement",
+        "date": "2026-09-26",
+        "categories": ["engagements"],
+        "image": "images/resources/house_group.png",
+        "description": "Meet the H3K team at the Usher Institute on Doors Open Day",
+        "url": "https://www.doorsopendays.org.uk/regions/edinburgh/university-of-edinburgh-usher-building-and-institute-for-regeneration-and-repair"
 	}
   ];
 
