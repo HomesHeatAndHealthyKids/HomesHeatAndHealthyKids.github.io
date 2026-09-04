@@ -63,10 +63,10 @@ const researchItems = [
         "title": "Glasgow Science Festival - Staying Warm and Well",
         "type": "Engagement",
         "categories": ["engagements"],
-        "image": "https://www.gla.ac.uk/media/Media_1065394_smxx.jpg",
+        "image": "https://cfmnsugzia.cloudimg.io/www.gla.ac.uk/media/Media_762130_smxx.jpg",
         "date": "2026-06-13",
         "description": "The team will be at Glasgow University to engage with children about the impact of housing on health, and to explore potential interventions to improve health outcomes.",
-        "url": "https://www.gla.ac.uk/events/sciencefestival/gsf2026/cheers/programme/allevents/arcdgms/"
+        "url": "https://www.gla.ac.uk/events/sciencefestival/"
   },
   {        
         "title": "Castlebrae Community Science Festival",
@@ -112,6 +112,15 @@ const researchItems = [
         "date": "2026-09-05",
         "description": "The Orkney International Science Festival will return this year. Join the team for an exciting time in the beautiful Orkney Islands.",
         "url": "https://www.orkney.com/events/orkney-international-science-festival"
+    },
+    {        
+        "title": "Bang Goes The Borders - 2026",
+        "type": "Engagement",
+        "categories": ["engagements"],
+        "image": "images/resources/parent_with_child.png",
+        "date": "2026-09-19",
+        "description": "Bang Goes the Borders is an annual science and learning festival and typically comprises around 30 presentations and interactive workshops running throughout the day. The event is free to attend and takes place in the grounds of Abbey Park Campus in Melrose.",
+        "url": "https://stmarystd6.greenhousecms.co.uk/Co-Curricular/BGTB/"
     },
     {
         "title": "Housing Matters: How did we get here and where are we going?",
