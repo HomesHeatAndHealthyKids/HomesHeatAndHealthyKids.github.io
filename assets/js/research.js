@@ -139,7 +139,16 @@ const researchItems = [
         "image": "images/resources/house_group.png",
         "description": "Meet the H3K team at the Usher Institute on Doors Open Day",
         "url": "https://www.doorsopendays.org.uk/regions/edinburgh/university-of-edinburgh-usher-building-and-institute-for-regeneration-and-repair"
-	}
+	},
+  	{
+        "title": "House Doctor - An Interactive Game for Families",
+        "type": "Blog",
+        "date": "2026-09-17",
+        "categories": ["blogs"],
+        "image": "images/resources/house_group.png",
+        "description": "A new Healthy Homes Hub blog looks at House Doctor, an interactive game by Drs Swann and McGill. The blog explains how the game helps families visualize trade-offs between home warmth and air quality, fostering understanding of ventilation needs through engaging, blame-free play.",
+        "url": "https://healthyhomeshub.uk/articles/house-doctor-game-warmth-indoor-air-quality"
+	}  
   ];
 
   // Ideally this would be loaded from a separate Javascript or API, but for simplicity we're hardcoding it here.
