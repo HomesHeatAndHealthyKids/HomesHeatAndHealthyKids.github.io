@@ -97,9 +97,9 @@ const researchItems = [
 	},
   	{
         "title": "House Doctor - An Interactive Game for Families",
-        "type": "Presentation",
+        "type": "Blog",
         "date": "2026-09-17",
-        "categories": ["presentations"],
+        "categories": ["blogs"],
         "image": "images/resources/house_group.png",
         "description": "A new Healthy Homes Hub blog details House Doctor, an interactive game by Drs Swann and McGill. It explains how the tool helps families visualize trade-offs between home warmth and air quality, fostering understanding of ventilation needs through engaging, blame-free play.",
         "url": "https://healthyhomeshub.uk/articles/house-doctor-game-warmth-indoor-air-quality"
