@@ -94,7 +94,16 @@ const researchItems = [
         "image": "images/resources/house_group.png",
         "description": "Livvy Swann presents on the Homes, Heat and Healthy Kids study and the role of underheated homes in preschool respiratory health at the Health Data Research UK Conference.",
         "url": "https://www.hdruk.ac.uk/about/hdr-uk-conference/health-data-research-uk-conference-2025-agenda/"
-	}
+	},
+  	{
+        "title": "House Doctor - An Interactive Game for Families",
+        "type": "Presentation",
+        "date": "2026-09-17",
+        "categories": ["presentations"],
+        "image": "images/resources/house_group.png",
+        "description": "A new Healthy Homes Hub blog details House Doctor, an interactive game by Drs Swann and McGill. It explains how the tool helps families visualize trade-offs between home warmth and air quality, fostering understanding of ventilation needs through engaging, blame-free play.",
+        "url": "https://healthyhomeshub.uk/articles/house-doctor-game-warmth-indoor-air-quality"
+	}  
   ];
 
   // Ideally this would be loaded from a separate Javascript or API, but for simplicity we're hardcoding it here.
