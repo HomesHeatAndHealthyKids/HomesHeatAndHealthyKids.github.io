@@ -80,7 +80,7 @@ async function fetchMediumFeed() {
 
     const responses = await Promise.all(
         mediumNames.map(name =>
-            fetch(`${endpoint}?rss_url=${encodeURIComponent(
+            fetch(`${endpoint}?rss=${encodeURIComponent(
                 `https://medium.com/feed/${name}`
             )}`)
         )
