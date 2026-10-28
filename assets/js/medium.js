@@ -76,7 +76,7 @@ function applyLimit(array, limit) {
 
 async function fetchMediumFeed() {
     const mediumNames = ["@hhhk_83035"];
-    const endpoint = "https://api.rss2json.com/v1/api.json";
+    const endpoint = "https://rss2json-proxy-git-main-homes-heat-and-healthy-kids.vercel.app/api";
 
     const responses = await Promise.all(
         mediumNames.map(name =>

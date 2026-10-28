@@ -228,7 +228,7 @@ function applyLimit(array, limit) {
 
 async function fetchMediumFeed() {
     const mediumNames = ["@hhhk_83035"];
-    const endpoint = "'https://cors.io/?url=https://rss2json-proxy-alpha.vercel.app";
+    const endpoint = "https://rss2json-proxy-git-main-homes-heat-and-healthy-kids.vercel.app/api";
 
     const responses = await Promise.all(
         mediumNames.map(name =>
@@ -307,11 +307,11 @@ function mergeFeeds(blogArray, otherArray) {
 async function loadResearch() {
 
 // Ignore the medium feed for now, as it is currently breaking
-//  const mediumItems = await loadMediumJSON();
+  const mediumItems = await loadMediumJSON();
   const grid = document.getElementById('researchGrid');
   grid.innerHTML = ''; // Clear existing content
-//  const allItems = mergeFeeds(researchItems, mediumItems);
-  const allItems = researchItems;
+  const allItems = mergeFeeds(researchItems, mediumItems);
+  //const allItems = researchItems;
 
   
   allItems.forEach(item => {
