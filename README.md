@@ -49,7 +49,7 @@ Taken from ChatGPT - sorry El - I should pay attention!
   * The research page will look for an image within the text and use that as a banner image for the blog
   * Please make sure to include an image
   * The list of blogs is cached locally so that the webpages are responsive
-  * Alternate blog processing - at the moment, we rely on a Vercel app, but we could use Github Actions to process the feed (see diag below)
+  * Alternate blog processing - at the moment, we rely on a Vercel app, but we could use Github Actions to process the feed (see diagram below)
 
 ```mermaid
 graph TD
