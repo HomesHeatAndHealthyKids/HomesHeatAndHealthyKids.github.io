@@ -45,10 +45,20 @@ Taken from ChatGPT - sorry El - I should pay attention!
   * Please write blogs at Medium
   * Blogs are added to the research.html page automatically from a medium feed
   * The 2 most recent blogs are automatically added to the home page
-  * The blogs will take some time to appear because the feed is processed by api2json
+  * The blogs will take some time to appear because the feed is processed by a custom server app hosted by Vercel
   * The research page will look for an image within the text and use that as a banner image for the blog
   * Please make sure to include an image
   * The list of blogs is cached locally so that the webpages are responsive
+  * Alternate blog processing - at the moment, we rely on a Vercel app, but we could use Github Actions to process the feed (see diag below)
+
+```mermaid
+graph TD
+    Repo[UoE GitHub Org Repo] -->|Push Code| Action[GitHub Action Workflow]
+    Action -->|Run Node Script| Generate[Generate JSON from RSS]
+    Generate -->|Commit JSON| Pages[gh-pages Branch]
+    Pages -->|Auto Host| GHPages[GitHub Pages]
+    User[User] -->|Request JSON| GHPages
+```
 
 ## Adding Team Members
   * Please add team members on team.html
@@ -114,7 +124,6 @@ Taken from ChatGPT - sorry El - I should pay attention!
 ## TODO 
   * Team Review
   * Generate content
-  * Test Google Tag Manager
 
 ## Credits:
 
