@@ -19,7 +19,7 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - name: CSpell
-        uses: streetsidesoftware/cspell-action@v8
+        uses: streetsidesoftware/cspell-action@v9
         with:
           config: ./spellcheck-config.json
           # Limit to common web repo file types
